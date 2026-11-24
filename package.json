@@ -1,0 +1,14 @@
+{
+  "name": "thruppence",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Pay what you're asked for on Telegram with one tap on your Even G2 glasses, from a TON wallet with on-chain limits.",
+  "license": "MIT",
+  "packageManager": "pnpm@9.15.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "pnpm -r --if-present test",
+    "build": "pnpm -r --if-present build",
+    "typecheck": "pnpm -r --if-present typecheck"
+  }
+}
