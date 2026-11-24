@@ -57,7 +57,7 @@ function askPage(ask: Ask, queueLen: number): LensPage {
   const boxes: Box[] = [
     text('head', M, 10, INNER, 27, fit(head, INNER), 2),
     { type: 'image', name: 'amount', x: M, y: 46, w: 288, h: 96, spec: { kind: 'amount', value: formatGram(ask.amountNano), unit: 'GRAM' } },
-    text('memo', 320, 52, 240, 81, fit(memo, 240 * 3), 4),
+    text('memo', 320, 66, 240, 81, fit(memo, 240 * 3), 4),
     text('to', M, 152, INNER, 27, fit(recipientLine(ask), INNER), 2),
     text('foot', M, 214, INNER, 58, fit(footer, INNER - 24), blocked ? 3 : 4, {
       capture: true,

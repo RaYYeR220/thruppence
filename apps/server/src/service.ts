@@ -345,7 +345,11 @@ export class Service {
     this.store.saveBook(tgId, row.ask.from.tgId, p.params.dest)
     let receiptSent = false
     try {
-      const lines = [row.reply, `Sent ${formatGram(p.params.amountNano)} GRAM ✓ · ${row.ask.memo}`, this.cfg.explorerTx(txHash)].filter(Boolean)
+      const lines = [
+        row.reply,
+        `Sent ${formatGram(p.params.amountNano)} GRAM ✓ · ${row.ask.memo}`,
+        `Thruppence #${row.request_id} · ${this.cfg.explorerTx(txHash)}`,
+      ].filter(Boolean)
       await this.replyAs(row, lines.join('\n'))
       receiptSent = true
     } catch {
