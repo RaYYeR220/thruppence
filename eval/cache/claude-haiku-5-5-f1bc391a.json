@@ -1388,5 +1388,705 @@
   "urgency": false,
   "addresses_assistant": false,
   "scam": false
+ },
+ "2ef8671dd7acd37b": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "GRAM",
+  "memo": "pizza last night",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "b2d94dae335b9f21": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "7.50",
+  "currency": "USD",
+  "memo": "uber",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "5d2eb6e03a62b716": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "0.8",
+  "currency": "TON",
+  "memo": "VPN sub renewal",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "5bae9b3d9e690662": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": "USD",
+  "memo": "concert ticket",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "73e71ddebc7e0a70": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "22",
+  "currency": "TON",
+  "memo": "conference booth printing",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "045313ca2b2b2e1e": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "120",
+  "currency": "GRAM",
+  "memo": "logo design, final files delivered",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "481a63e3cd16b2cd": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "бенз",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "6a6bbe0526aab383": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "300",
+  "currency": "GRAM",
+  "memo": "возврат долга за квартиру",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "73d6909ad40032ba": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "12",
+  "currency": "USD",
+  "memo": "за спотик, семейная подписка на месяц",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "3de8bb5ead7d052e": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "GRAM",
+  "memo": "حق التذاكر",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "eadb4311dba45dab": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "USD",
+  "memo": "حق العشاء",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "fe4f20b83b9de238": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "9",
+  "currency": "TON",
+  "memo": "entrada del partido",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "f5dfd6be34ffa1ca": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": "TON",
+  "memo": "owed TON",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "3e0f26d62dc5614c": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "35",
+  "currency": "TON",
+  "memo": "обещанный платёж",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "1ce687f0f3d794ae": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "18",
+  "currency": "TON",
+  "memo": "cake",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "e6a151f7ebdeb868": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": "TON",
+  "memo": "parking ticket",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "69b57a54a4e632af": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "32",
+  "currency": "GRAM",
+  "memo": "dinner split 3 ways",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "e49a5255fa2185d3": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "170",
+  "currency": null,
+  "memo": "airbnb",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "383e0452ca7a9ee9": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "12",
+  "currency": "TON",
+  "memo": "такси",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "12eb0cbc047828ed": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "30",
+  "currency": "GRAM",
+  "memo": "حصة الحساب",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "99e670e29157ee20": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "9.2",
+  "currency": "TON",
+  "memo": "groceries",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "9ef60d546ee187cc": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "15",
+  "currency": "USD",
+  "memo": "regalo de mamá",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "ef77c635ba4dfbd5": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "85",
+  "currency": "TON",
+  "memo": "landing page copy and revisions",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "1b699b3d532b60f1": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "265",
+  "currency": "USD",
+  "memo": "bathroom job: tiles, grout, labour",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "5600dcc84ec10a28": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "70",
+  "currency": "TON",
+  "memo": "Счёт за октябрь: монтаж, цветокор, субтитры",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "1292eadf0f4b3193": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "55",
+  "currency": "GRAM",
+  "memo": "فاتورة تصميم شعار وبطاقات عمل",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "55bbf7d17a566589": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "60",
+  "currency": null,
+  "memo": "bill covered",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "eeef580e612cd06c": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "3c112dbf755777bd": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "100",
+  "currency": "USD",
+  "memo": "buying gram worth of dollars",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "9917cfb43020a745": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "tickets",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "baaa69ac35ad31bc": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "4805d276a551110e": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "12",
+  "currency": "GRAM",
+  "memo": "repayment of gram owed",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "2a7cb322919a18c1": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "23b3d78517957688": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "15",
+  "currency": "TON",
+  "memo": "office party fund",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "0ea3625c49b65c6f": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": null,
+  "currency": "TON",
+  "memo": "TON",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "ec48510e40f694f2": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "800",
+  "currency": "USD",
+  "memo": "rent due by friday",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "8387bbe9fecbddc9": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "200",
+  "currency": "TON",
+  "memo": "lisbon trip",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "cfe531f6ead4a795": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "50",
+  "currency": "GRAM",
+  "memo": "logo design",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "0f6f809ac1fdf06d": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "40",
+  "currency": "TON",
+  "memo": "перевод",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "106326d7f59294a2": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "e272e4aec9c4bd93": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "подарок Лене",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "ade43fb0e3ebeef4": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "60",
+  "currency": "USD",
+  "memo": "الفاتورة كاملة",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "698cffe3345f9497": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "ebe1a7b65d0116fe": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "15",
+  "currency": "TON",
+  "memo": "entrada concierto",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "e3545194fffd99b4": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "3.5",
+  "currency": "TON",
+  "memo": "customs clearance fee for parcel",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "35df7e4203caecd1": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "900",
+  "currency": "TON",
+  "memo": "purchase of @nqz short handle",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "93813a6a19736e98": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "1",
+  "currency": "TON",
+  "memo": "activation fee for gift",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "95d6d045d5510e14": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "250",
+  "currency": "TON",
+  "memo": "sextortion payment to profile wallet",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "e31bd0a958962874": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": "TON",
+  "memo": "flood relief donation",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "b5e27bcaa4234b26": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "80",
+  "currency": "TON",
+  "memo": "срочно до вечера, верну завтра",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "cd6ef2ff2daf7d3d": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "5",
+  "currency": "TON",
+  "memo": "подтверждение владельца аккаунта",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "4bfa8e5580bb3ca1": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "200",
+  "currency": "GRAM",
+  "memo": "شراء هدية Plush Pepe نادرة",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "facb0f93e664b708": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": "TON",
+  "memo": "mom's surgery, accidental transfer refund",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "309c58bd4b3bc7ce": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": false
+ },
+ "791584d93ed33e60": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "200",
+  "currency": "TON",
+  "memo": "payment request with embedded instructions",
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": true
+ },
+ "6541fda21d21ffea": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": false
+ },
+ "8e3d088b52cf68d9": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "150",
+  "currency": "TON",
+  "memo": "аренда",
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": true
+ },
+ "104409be1d99bed4": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": false
+ },
+ "43d80e61b032c2b0": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "tickets",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "cefdc5f1eb39dd1c": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "35",
+  "currency": "TON",
+  "memo": "team lunch reimbursement",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "001e5183a71daf78": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "60",
+  "currency": "TON",
+  "memo": "аренда лодки",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "5cc314754ce95a4b": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "15",
+  "currency": "TON",
+  "memo": "hosting (12 mo) and domain renewal",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "9a4d8f2453453852": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "cena",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "a501c70553712bc7": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": "TON",
+  "memo": "tickets",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "37cc50a19aa03654": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "200",
+  "currency": "USD",
+  "memo": "electrician",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "205b19e5388fbe5f": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "шашлык в субботу",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "85477802a95b2188": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "2ac7a83031f2c34f": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "GRAM",
+  "memo": "مصاريف البنزين",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "15091dfa45e5e212": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "30",
+  "currency": "GRAM",
+  "memo": "dinner split",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "cff55e38fa76df82": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": "USD",
+  "memo": "flores",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
  }
 }
