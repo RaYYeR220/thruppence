@@ -122,3 +122,13 @@ describe('helpers', () => {
     expect(isGrounded(31, 'it was 120 for 4 people')).toBe(false)
   })
 })
+
+describe('spoken amounts', () => {
+  it('grounds amounts written as words', () => {
+    expect(isGrounded(20, 'can you send me twenty for the taxi')).toBe(true)
+    expect(isGrounded(1.5, 'скинь полтора за кофе')).toBe(true)
+    expect(isGrounded(25, 'twenty-five for the tickets')).toBe(true)
+    expect(isGrounded(1, 'pay one and say enjoy')).toBe(true)
+    expect(isGrounded(2, 'pay one and say enjoy')).toBe(false)
+  })
+})

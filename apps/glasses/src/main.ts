@@ -1,79 +1,97 @@
-import {
-  waitForEvenAppBridge,
-  TextContainerProperty,
-  CreateStartUpPageContainer,
-  TextContainerUpgrade,
-  OsEventTypeList,
-} from '@evenrealities/even_hub_sdk'
+import './polyfill'
+import { AudioInputSource, waitForEvenAppBridge, type EvenAppBridge } from '@evenrealities/even_hub_sdk'
+import { initialState, reduce, renderScreen, type Effect, type LensEvent, type LensState } from '@thruppence/core'
+import { Companion } from './companion'
+import { normalize, SwipeThrottle } from './input'
+import { api, LensSocket, type Creds } from './net'
+import { LensRenderer } from './renderer'
+import { DeviceKey } from './signer'
 
-const bridge = await waitForEvenAppBridge()
+const bridge: EvenAppBridge = await waitForEvenAppBridge()
+let state: LensState = initialState(Date.now())
+const renderer = new LensRenderer(bridge)
+await renderer.start(renderScreen(state))
 
-const mainText = new TextContainerProperty({
-  xPosition: 0,
-  yPosition: 0,
-  width: 576,
-  height: 288,
-  borderWidth: 0,
-  borderColor: 5,
-  paddingLength: 4,
-  containerID: 1,
-  containerName: 'main',
-  content: 'Hello from G2!\nTap to count · double-tap to exit.',
-  isEventCapture: 1,
-})
+const companion = new Companion(document.getElementById('app')!)
+const key = await DeviceKey.loadOrCreate(bridge)
 
-const result = await bridge.createStartUpPageContainer(
-  new CreateStartUpPageContainer({
-    containerTotalNum: 1,
-    textObject: [mainText],
-  }),
+async function loadCreds(): Promise<Creds> {
+  const saved = await bridge.getLocalStorage('thruppence.creds').catch(() => '')
+  if (saved) return JSON.parse(saved) as Creds
+  const c = await api.register()
+  await bridge.setLocalStorage('thruppence.creds', JSON.stringify(c))
+  return c
+}
+const creds = await loadCreds()
+
+let micOn = false
+const throttle = new SwipeThrottle()
+const socket = new LensSocket(
+  () => ({ t: 'hello', deviceId: creds.deviceId, token: creds.token }),
+  m => dispatch({ k: 'server', m }),
+  up => companion.setOnline(up),
 )
 
-console.log('Page created:', result === 0 ? 'success' : `failed (${result})`)
-
-// Reads the event type out of one envelope.
-//
-// CLICK_EVENT is 0, and protobuf omits zero-value fields on the wire, so a
-// single tap arrives as an envelope whose `eventType` is `undefined`. The
-// default has to be resolved INSIDE the envelope check. Writing
-// `event.sysEvent?.eventType ?? OsEventTypeList.CLICK_EVENT` instead would
-// read CLICK on events that carry no `sysEvent` at all, so every scroll,
-// exit and audio frame would fire the tap handler.
-function eventTypeOf(envelope?: { eventType?: OsEventTypeList }): OsEventTypeList | null {
-  if (!envelope) return null
-  return envelope.eventType ?? OsEventTypeList.CLICK_EVENT
+async function runEffect(e: Effect) {
+  switch (e.k) {
+    case 'send':
+      socket.send(e.m)
+      return
+    case 'sign': {
+      const boc = await key.signPay(e.params)
+      socket.send({ t: 'signed', askId: e.params.askId, boc })
+      return
+    }
+    case 'mic':
+      micOn = e.on
+      await bridge.audioControl(e.on, AudioInputSource.Glasses)
+      return
+    case 'exit':
+      await bridge.shutDownPageContainer(1)
+      return
+  }
 }
 
-// Event routing, critical details:
-//   • Taps/double-taps/lifecycle come through `event.sysEvent`.
-//     Scroll gestures come through `event.textEvent`. Never mix them.
-//   • Double-tap → `shutDownPageContainer(1)` is a root-level check: it
-//     must fire no matter which envelope the event arrives in, so users
-//     can always exit the app.
-//   • Check DOUBLE_CLICK_EVENT before CLICK_EVENT.
-let taps = 0
-const unsubscribe = bridge.onEvenHubEvent(event => {
-  const sysType = eventTypeOf(event.sysEvent)
-  const textType = eventTypeOf(event.textEvent)
+function dispatch(ev: LensEvent) {
+  if (!throttle.pass(ev, Date.now())) return
+  const out = reduce({ ...state, now: Date.now() }, ev)
+  state = out.state
+  renderer.render(renderScreen(state))
+  companion.setLens(state)
+  for (const e of out.effects) void runEffect(e).catch(err => console.warn('effect failed', e.k, err))
+}
 
-  if (sysType === OsEventTypeList.DOUBLE_CLICK_EVENT || textType === OsEventTypeList.DOUBLE_CLICK_EVENT) {
-    bridge.shutDownPageContainer(1)
-    return
-  }
+// Flash screens and the paying bar advance on a slow clock.
+setInterval(() => dispatch({ k: 'tick', now: Date.now() }), 400)
 
-  if (sysType === OsEventTypeList.CLICK_EVENT || textType === OsEventTypeList.CLICK_EVENT) {
-    taps += 1
-    bridge.textContainerUpgrade(
-      new TextContainerUpgrade({
-        containerID: 1,
-        containerName: 'main',
-        content: `Taps: ${taps}\nTap to count · double-tap to exit.`,
-      }),
-    )
-    return
+// Microphone frames go out in ~100 ms batches while the ring is held.
+let pcmParts: Uint8Array[] = []
+let seq = 0
+setInterval(() => {
+  if (!pcmParts.length) return
+  const total = pcmParts.reduce((n, p) => n + p.length, 0)
+  const buf = new Uint8Array(total)
+  let o = 0
+  for (const p of pcmParts) {
+    buf.set(p, o)
+    o += p.length
   }
+  pcmParts = []
+  let bin = ''
+  for (let i = 0; i < buf.length; i++) bin += String.fromCharCode(buf[i]!)
+  socket.send({ t: 'audio', seq: seq++, pcm: btoa(bin) })
+}, 100)
 
-  if (sysType === OsEventTypeList.SYSTEM_EXIT_EVENT || sysType === OsEventTypeList.ABNORMAL_EXIT_EVENT) {
-    unsubscribe()
-  }
+bridge.onEvenHubEvent(raw => {
+  const n = normalize(raw as never)
+  if (n.pcm && micOn) pcmParts.push(n.pcm)
+  if (n.lifecycle === 'foreground') socket.ensure()
+  for (const ev of n.lens) dispatch(ev)
 })
+
+bridge.onDeviceStatusChanged(st => {
+  if (typeof st.isWearing === 'boolean') dispatch({ k: 'wearing', on: st.isWearing })
+})
+
+companion.start(creds, key.publicHex)
+socket.open()

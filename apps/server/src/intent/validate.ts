@@ -1,6 +1,7 @@
 import { Address } from '@ton/core'
 import { parseGram, type Ask, type Risk, type RiskReason } from '@thruppence/core'
 import type { RawIntent } from './schema'
+import { spokenToDigits } from './spoken'
 
 export interface ValidateCtx {
   /** The original message text, or the voice-note transcript. */
@@ -84,7 +85,7 @@ function asNumber(amount: string): number | null {
 
 /** The amount must be written in the message, or be a fair share of two numbers in it ("120 … 4 of us"). */
 export function isGrounded(amount: number, text: string): boolean {
-  const nums = numbersIn(text)
+  const nums = numbersIn(spokenToDigits(text))
   const eq = (a: number, b: number) => Math.abs(a - b) < 0.005
   if (nums.some(n => eq(n, amount))) return true
   for (const a of nums) for (const b of nums) if (b >= 2 && b <= 50 && eq(a / b, amount)) return true

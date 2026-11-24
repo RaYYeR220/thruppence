@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto'
 import { formatGram, parseGram, type Ask, type LensDecision, type Limits, type Nano, type PayParams } from '@thruppence/core'
-import { isGrounded, numbersIn, validate } from './intent/validate'
+import { isGrounded, validate } from './intent/validate'
 import type { ChainPort, Clock, DemoSigner, LensPort, LlmPort, SttPort, TelegramPort } from './ports'
 import type { AskRow, Store } from './store'
 import { pcmToWav } from './stt/wav'
@@ -340,8 +340,7 @@ export class Service {
     if (intent.kind === 'pay') {
       // Same grounding rule as messages: the amount has to be something the wearer actually said.
       const n = Number(BigInt(intent.amountNano) / 1_000_000n) / 1000
-      const said = numbersIn(transcript).length > 0 && isGrounded(n, transcript)
-      if (!said || !parseGram(String(n))) intent = { kind: 'unknown', heard: transcript }
+      if (!isGrounded(n, transcript) || !parseGram(String(n))) intent = { kind: 'unknown', heard: transcript }
     }
     this.lens.push(tgId, { t: 'voice_intent', ...(buf.askId ? { askId: buf.askId } : {}), intent })
   }
