@@ -190,6 +190,17 @@ describe('service', () => {
     expect(store.ask(askId!)!.status).toBe('open')
   })
 
+  it('an on-chain refusal comes back as a plain reason and frees the ask', async () => {
+    const { askId } = await incoming()
+    await svc.decision(PAYER, { askId: askId!, action: 'pay' })
+    chain.sendExternal = async () => {
+      throw Object.assign(new Error('refused'), { exitCode: 406 })
+    }
+    await svc.signed(PAYER, askId!, 'boc==')
+    expect(lens.of('pay_failed')[0]!.reason).toBe("Over today's limit.")
+    expect(store.ask(askId!)!.status).toBe('open')
+  })
+
   it('limits are re-checked at pay time against the chain', async () => {
     const { askId } = await incoming()
     chain.info.spentNano = 4_000_000_000n

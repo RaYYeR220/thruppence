@@ -19,6 +19,15 @@ class Pacer {
   }
 }
 
+export class RefusedError extends Error {
+  constructor(
+    readonly exitCode: number | null,
+    detail: string,
+  ) {
+    super(exitCode ? `refused with exit code ${exitCode}` : `send failed: ${detail}`)
+  }
+}
+
 function commentOf(body: Cell): string | null {
   try {
     const s = body.beginParse()
@@ -68,7 +77,14 @@ export class ToncenterChain implements ChainPort {
 
   async sendExternal(boc: string): Promise<void> {
     this.cache.clear()
-    await this.pacer.run(() => this.client.sendFile(Buffer.from(boc, 'base64')))
+    try {
+      await this.pacer.run(() => this.client.sendFile(Buffer.from(boc, 'base64')))
+    } catch (err) {
+      // The extension refuses before accepting, so a refusal comes back here, not as a transaction.
+      const text = JSON.stringify((err as { response?: { data?: unknown } }).response?.data ?? String(err))
+      const code = text.match(/exitcode=(\d+)/)?.[1]
+      throw new RefusedError(code ? Number(code) : null, text.slice(0, 300))
+    }
   }
 
   async findPayment(wallet: string, comment: string, sinceSec: number): Promise<{ txHash: string } | null> {

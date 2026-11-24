@@ -47,6 +47,20 @@ export interface HandleResult {
 
 const isDemo = (tgId: string) => tgId.startsWith('demo:')
 
+/** Why the limits extension refused a signed request (its exit codes). */
+export const REFUSALS: Record<number, string> = {
+  401: 'This device is not the one allowed to pay from this wallet.',
+  402: 'Another payment went first. Press again.',
+  403: 'The request expired. Press again.',
+  404: 'Payments are paused from your main wallet.',
+  405: 'Over your per-payment limit.',
+  406: "Over today's limit.",
+  407: 'Signed for a different wallet.',
+  408: 'That address cannot be paid.',
+  410: 'The note on this payment is not valid.',
+  411: 'The limits contract needs a small top-up for fees.',
+}
+
 /**
  * The money-ask pipeline and the pay flow. Telegram, TON, the language
  * model and the lens connections are ports, so every rule here runs in tests
@@ -261,9 +275,11 @@ export class Service {
     if (!this.store.transition(askId, ['paying'], 'sent')) return
     try {
       await this.chain.sendExternal(boc)
-    } catch {
+    } catch (err) {
       this.store.transition(askId, ['sent'], 'open')
-      return this.fail(tgId, askId, 'TON did not accept the payment. Try again.')
+      this.pending.delete(askId)
+      const code = (err as { exitCode?: number | null }).exitCode ?? null
+      return this.fail(tgId, askId, code && REFUSALS[code] ? REFUSALS[code]! : 'TON did not accept the payment. Try again.')
     }
     if (!isDemo(tgId)) void this.waitConfirmed(tgId, askId)
   }
