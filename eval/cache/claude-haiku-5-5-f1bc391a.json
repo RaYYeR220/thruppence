@@ -1198,5 +1198,195 @@
   "urgency": false,
   "addresses_assistant": false,
   "scam": true
+ },
+ "a577c6a30524bbe8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": null,
+  "memo": "pizza",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "78610e41dd779165": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "45",
+  "currency": null,
+  "memo": "new wallet",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "20d3b7f1f260f589": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "60",
+  "currency": null,
+  "memo": "cabin deposit share",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "2ad8e367d8f42922": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "120",
+  "currency": "TON",
+  "memo": "invoice for the design",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "db54df962a10eb95": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "USD",
+  "memo": "for the gift",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "c86daaa013f8cb75": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "TON",
+  "memo": "за кино",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "c4449c4c664536ca": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": "TON",
+  "memo": "перевод на кошелёк, основной заморозили",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "35b29af25d8de667": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "transfer to address, wallet in profile disabled",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "51ceb744329d8bdb": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "18",
+  "currency": null,
+  "memo": "para la cena",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "b23bc8d9d455ab56": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": null,
+  "memo": "tickets",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "da5cc4d3d20f4cca": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "30",
+  "currency": null,
+  "memo": "dinner yesterday",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "0339fe69e02fa23a": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "20",
+  "currency": null,
+  "memo": "thanks for the money yesterday",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "ce1a3d1a79b7960d": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": "USD",
+  "memo": "car got towed",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "410366adb08156a6": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "9",
+  "currency": "USD",
+  "memo": "uber half",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "75901dec0b2e9902": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "c08a41bb41470dda": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "билеты как договаривались",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "567f89ee9f8bca51": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "15",
+  "currency": null,
+  "memo": "перевод вчера",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "5b2aa75715d830e7": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "تذاكر",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "5e973a80a7b912f3": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "30",
+  "currency": null,
+  "memo": "شكرا على المبلغ المحول",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
  }
 }

@@ -33,11 +33,12 @@ type Outcome = { kind: 'none' } | { kind: 'payable' | 'blocked'; amount: number;
 
 const MODEL = process.argv.includes('--model') ? process.argv[process.argv.indexOf('--model') + 1]! : 'claude-haiku-5-5'
 const OFFLINE = process.argv.includes('--offline')
+const DATA = process.argv.includes('--data') ? process.argv[process.argv.indexOf('--data') + 1]! : 'messages'
 const USD_PER_GRAM = 1 // fixed so dollar amounts compare exactly
 const SAME = new Address(0, Buffer.alloc(32, 0x11)).toString({ bounceable: false })
 const OTHER = new Address(0, Buffer.alloc(32, 0x99)).toString({ bounceable: false })
 
-const items: Item[] = readFileSync(new URL('./data/messages.jsonl', import.meta.url), 'utf8')
+const items: Item[] = readFileSync(new URL(`./data/${DATA}.jsonl`, import.meta.url), 'utf8')
   .split('\n')
   .filter(l => l.trim())
   .map(l => JSON.parse(l) as Item)
@@ -166,12 +167,12 @@ const result = {
   model: MODEL,
   promptId: PROMPT_ID,
   date: new Date().toISOString().slice(0, 10),
-  dataset: { file: 'eval/data/messages.jsonl', messages: rows.length },
+  dataset: { file: `eval/data/${DATA}.jsonl`, messages: rows.length },
   systems: { regex: summary('regex'), llmOnly: summary('llmOnly'), ours: summary('ours') },
   byCategory,
   rows,
 }
-writeFileSync(new URL('./results/latest.json', import.meta.url), JSON.stringify(result, null, 1))
+writeFileSync(new URL(`./results/${DATA === 'messages' ? 'latest' : DATA}.json`, import.meta.url), JSON.stringify(result, null, 1))
 console.table(result.systems)
 console.table(byCategory)
 for (const r of rows.filter(r => !r.ours.correct)) console.log('ours ✗', r.id, r.expect, '→', r.ours.kind, r.ours.why)
