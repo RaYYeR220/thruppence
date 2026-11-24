@@ -146,6 +146,28 @@ importers:
         specifier: ~5.9.3
         version: 5.9.3
 
+  eval:
+    dependencies:
+      '@thruppence/core':
+        specifier: workspace:*
+        version: link:../packages/core
+      '@thruppence/server':
+        specifier: workspace:*
+        version: link:../apps/server
+      '@ton/core':
+        specifier: ^0.63.1
+        version: 0.63.1(@ton/crypto@3.3.0)
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.0
+        version: 22.20.5
+      tsx:
+        specifier: ^4.19.0
+        version: 4.23.15
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+
   packages/core:
     dependencies:
       '@evenrealities/pretext':
