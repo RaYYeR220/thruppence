@@ -1,0 +1,12 @@
+{
+  "note": "One device-signed payment of 1 TON through the extension and the official agentic wallet, @ton/sandbox default config.",
+  "extComputeGas": 7785,
+  "extComputeFeeTon": "0.000519001",
+  "extTxFeesTon": "0.000717423",
+  "extBalanceDropTon": "0.020813070",
+  "attachedToWalletTon": "0.020000000",
+  "walletComputeGas": 3622,
+  "walletComputeFeeTon": "0.000241468",
+  "walletTxFeesTon": "0.000272490",
+  "feesPerPaymentTon": "0.001147606"
+}
