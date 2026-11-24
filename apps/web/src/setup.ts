@@ -3,7 +3,7 @@ import { Address } from '@ton/core'
 import { allowanceAddresses, NETWORK, ownerOps, parseGram, setupMessages, type AllowancePlan } from '@thruppence/core'
 import { TonConnectUI } from '@tonconnect/ui'
 
-const SERVER = (import.meta.env.VITE_SERVER_URL as string | undefined) ?? 'http://127.0.0.1:8787'
+const SERVER = (import.meta.env.VITE_SERVER_URL as string | undefined) ?? 'http://127.0.0.1:8791'
 const TESTNET = ((import.meta.env.VITE_NETWORK as string | undefined) ?? 'testnet') === 'testnet'
 const NET = TESTNET ? NETWORK.testnet : NETWORK.mainnet
 const EXPLORER = TESTNET ? 'https://testnet.tonviewer.com' : 'https://tonviewer.com'

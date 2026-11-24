@@ -11,7 +11,7 @@
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { Address } from '@ton/core'
-import { extractIntent } from '../apps/server/src/intent/extract'
+import { extractIntent, SYSTEM_PROMPT } from '../apps/server/src/intent/extract'
 import type { RawIntent } from '../apps/server/src/intent/schema'
 import { addressesIn, numbersIn, sameAddress, validate } from '../apps/server/src/intent/validate'
 import { spokenToDigits } from '../apps/server/src/intent/spoken'
@@ -44,7 +44,9 @@ const items: Item[] = readFileSync(new URL('./data/messages.jsonl', import.meta.
   .map(it => ({ ...it, text: it.text.replaceAll('{SAME_ADDR}', SAME).replaceAll('{OTHER_ADDR}', OTHER) }))
 
 mkdirSync(new URL('./cache/', import.meta.url), { recursive: true })
-const cachePath = new URL(`./cache/${MODEL}.json`, import.meta.url)
+// Answers are cached per model and per prompt, so a prompt change never reuses old answers.
+const PROMPT_ID = createHash('sha256').update(SYSTEM_PROMPT).digest('hex').slice(0, 8)
+const cachePath = new URL(`./cache/${MODEL}-${PROMPT_ID}.json`, import.meta.url)
 const cache: Record<string, RawIntent | null> = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, 'utf8')) : {}
 const key = (t: string) => createHash('sha256').update(t).digest('hex').slice(0, 16)
 
@@ -162,6 +164,7 @@ const byCategory = Object.fromEntries(
 
 const result = {
   model: MODEL,
+  promptId: PROMPT_ID,
   date: new Date().toISOString().slice(0, 10),
   dataset: { file: 'eval/data/messages.jsonl', messages: rows.length },
   systems: { regex: summary('regex'), llmOnly: summary('llmOnly'), ours: summary('ours') },

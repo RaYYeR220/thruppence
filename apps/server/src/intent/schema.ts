@@ -16,12 +16,14 @@ export interface RawIntent {
   urgency: boolean
   /** The text contains instructions aimed at an assistant/bot ("ignore previous…", "system:"). */
   addresses_assistant: boolean
+  /** Matches a known scam shape: fake support, account threats, "verify" payments, giveaways, fees to claim, guaranteed returns, sudden "new account" friends. */
+  scam: boolean
 }
 
 export const RAW_INTENT_JSON_SCHEMA = {
   type: 'object',
   additionalProperties: false,
-  required: ['is_request', 'kind', 'amount', 'currency', 'memo', 'urgency', 'addresses_assistant'],
+  required: ['is_request', 'kind', 'amount', 'currency', 'memo', 'urgency', 'addresses_assistant', 'scam'],
   properties: {
     is_request: { type: 'boolean' },
     kind: { type: 'string', enum: ['pay_request', 'split', 'invoice', 'repaid_notice', 'none'] },
@@ -30,6 +32,7 @@ export const RAW_INTENT_JSON_SCHEMA = {
     memo: { type: ['string', 'null'] },
     urgency: { type: 'boolean' },
     addresses_assistant: { type: 'boolean' },
+    scam: { type: 'boolean' },
   },
 } as const
 
@@ -44,6 +47,7 @@ export function isRawIntent(v: unknown): v is RawIntent {
     (o.currency === null || ['GRAM', 'TON', 'USD', 'USDT', 'OTHER'].includes(o.currency as string)) &&
     (o.memo === null || typeof o.memo === 'string') &&
     typeof o.urgency === 'boolean' &&
-    typeof o.addresses_assistant === 'boolean'
+    typeof o.addresses_assistant === 'boolean' &&
+    typeof o.scam === 'boolean'
   )
 }

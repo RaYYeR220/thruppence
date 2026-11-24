@@ -1,7 +1,7 @@
 import './polyfill'
 import { drawPage, formatGram, initialState, LENS_H, LENS_W, reduce, renderScreen, type LensEvent, type LensState, type ServerToLens } from '@thruppence/core'
 
-const SERVER = (import.meta.env.VITE_SERVER_URL as string | undefined) ?? 'http://127.0.0.1:8787'
+const SERVER = (import.meta.env.VITE_SERVER_URL as string | undefined) ?? 'http://127.0.0.1:8791'
 const EXPLORER = (import.meta.env.VITE_EXPLORER as string | undefined) ?? 'https://testnet.tonviewer.com'
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T

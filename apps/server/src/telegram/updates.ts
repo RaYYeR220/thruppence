@@ -64,7 +64,7 @@ export class UpdateRouter {
 
   private async onBusinessMessage(m: TgMessage) {
     const user = m.business_connection_id ? this.d.store.userByConnection(m.business_connection_id) : undefined
-    if (!user || !m.from || String(m.from.id) === user.tg_id || m.from.is_bot) return
+    if (!user || !m.from || String(m.from.id) === user.tg_id || m.from.is_bot || m.forward_origin) return
     await this.d.svc.handleMessage({
       payerTgId: user.tg_id,
       chat: { id: m.chat.id, kind: 'dm' },

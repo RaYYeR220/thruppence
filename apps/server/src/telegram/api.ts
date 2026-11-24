@@ -42,6 +42,8 @@ export interface TgMessage {
   voice?: TgVoice
   business_connection_id?: string
   reply_to_message?: TgMessage
+  /** Present on forwarded messages: someone else's words, never an ask from the sender. */
+  forward_origin?: unknown
 }
 
 export interface TgBusinessConnection {

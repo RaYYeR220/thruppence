@@ -13,6 +13,7 @@ import { Service, type DemoWallet } from './service'
 import { Store } from './store'
 import { TelegramApi, type TgUpdate } from './telegram/api'
 import { UpdateRouter } from './telegram/updates'
+import { OfflineTelegram, type BotLike } from './telegram/offline'
 
 const env = (k: string, d?: string) => {
   const v = process.env[k] ?? d
@@ -26,8 +27,14 @@ const NETWORK_ID = Number(env('NETWORK_ID', '-3'))
 const EXPLORER = env('EXPLORER', 'https://testnet.tonviewer.com')
 
 const store = new Store(env('DB_PATH', 'thruppence.db'))
-const tg = new TelegramApi(env('BOT_TOKEN'))
-const chain = new ToncenterChain(env('TONCENTER_ENDPOINT', 'https://testnet.toncenter.com/api/v2/jsonRPC'), process.env.TONCENTER_API_KEY)
+const offline = !process.env.BOT_TOKEN
+const tg: BotLike = offline ? new OfflineTelegram() : new TelegramApi(env('BOT_TOKEN'))
+const DEV = process.env.DEV === '1'
+const chain = new ToncenterChain(
+  env('TONCENTER_ENDPOINT', 'https://testnet.toncenter.com/api/v2/jsonRPC'),
+  process.env.TONCENTER_API_KEY,
+  process.env.TON_RPS ? Number(process.env.TON_RPS) : undefined,
+)
 const llmCfg = { baseUrl: 'https://api.venice.ai/api/v1', apiKey: env('VENICE_API_KEY'), model: env('LLM_MODEL', 'claude-haiku-5-5'), timeoutMs: 8000 }
 const llm = new VeniceLlm(llmCfg, new Budget(Number(env('LLM_DAILY_CAP', '3000'))))
 const stt = new VeniceStt(llmCfg.baseUrl, llmCfg.apiKey, env('STT_MODEL', 'openai/whisper-large-v3'), new Budget(Number(env('STT_DAILY_CAP', '600'))))
@@ -82,11 +89,17 @@ const svc = new Service(
     confirmTimeoutMs: 120_000,
     usdPerGram: () => usdPerGram,
     ...(demo ? { demo } : {}),
-    verifySigned: (boc, p) => verifySignedPay(boc, p),
+    verifySigned: (boc, p, tgId) => {
+      // Real devices registered their key: check the signature here too, before anything is relayed.
+      const pub = tgId && !tgId.startsWith('demo:') ? store.devicePubFor(tgId) : null
+      return verifySignedPay(boc, p, pub ? Buffer.from(pub, 'hex') : undefined)
+    },
   },
   demoDevice,
 )
 hub.attach(svc)
+void svc.resume()
+setInterval(() => void svc.resume(), 60_000).unref()
 
 const me = await tg.getMe()
 const router = new UpdateRouter({
@@ -112,10 +125,12 @@ app.post('/tg/webhook', async c => {
 })
 
 // Devices: the glasses app registers once, then links to Telegram with a one-time code.
-app.post('/api/devices', c => {
+app.post('/api/devices', async c => {
+  const body = (await c.req.json().catch(() => ({}))) as { pub?: string }
+  const pub = typeof body.pub === 'string' && /^[0-9a-f]{64}$/i.test(body.pub) ? body.pub.toLowerCase() : null
   const deviceId = randomUUID()
   const token = randomBytes(24).toString('base64url')
-  store.addDevice(deviceId, token)
+  store.addDevice(deviceId, token, pub)
   return c.json({ deviceId, token })
 })
 
@@ -157,6 +172,36 @@ app.get('/api/history', c => {
     .all(d.tg_id) as { ask_json: string; status: string; amount_nano: string | null; tx_hash: string | null; updated_at: number }[]
   return c.json(rows.map(r => ({ ...JSON.parse(r.ask_json), status: r.status, paidNano: r.amount_nano, txHash: r.tx_hash, at: r.updated_at })))
 })
+
+if (DEV) {
+  // Development only: link a device and play an incoming Telegram ask without a real bot.
+  app.post('/api/dev/pair', async c => {
+    const { deviceId, tgId, name } = (await c.req.json()) as { deviceId: string; tgId: string; name?: string }
+    store.upsertUser({ tg_id: tgId, name: name ?? 'Dev', business_connection_id: 'dev-connection' })
+    store.bindDevice(deviceId, tgId)
+    hub.paired(deviceId, tgId)
+    return c.json({ ok: true })
+  })
+  app.post('/api/dev/wallets', async c => {
+    const b = (await c.req.json()) as { tgId: string; owner: string; wallet: string; ext: string }
+    store.setWallets(b.tgId, b)
+    await svc.lensHello(b.tgId, store.user(b.tgId)?.name ?? '')
+    return c.json({ ok: true })
+  })
+  app.post('/api/dev/ask', async c => {
+    const b = (await c.req.json()) as { payerTgId: string; fromId: number; fromName: string; text: string; card?: string }
+    if (b.card && tg instanceof OfflineTelegram) tg.cards.set(b.fromId, b.card)
+    const r = await svc.handleMessage({
+      payerTgId: b.payerTgId,
+      chat: { id: b.fromId, kind: 'dm' },
+      from: { tgId: b.fromId, name: b.fromName },
+      text: b.text,
+      messageId: Date.now() % 100000,
+      businessConnectionId: 'dev-connection',
+    })
+    return c.json(r)
+  })
+}
 
 // The public "try it" page asks for a session, then shows a lens bound to it.
 app.post('/api/try', c => {

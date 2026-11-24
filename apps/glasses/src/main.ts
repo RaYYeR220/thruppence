@@ -17,8 +17,13 @@ const key = await DeviceKey.loadOrCreate(bridge)
 
 async function loadCreds(): Promise<Creds> {
   const saved = await bridge.getLocalStorage('thruppence.creds').catch(() => '')
-  if (saved) return JSON.parse(saved) as Creds
-  const c = await api.register()
+  if (saved) {
+    const c = JSON.parse(saved) as Creds
+    // A server that no longer knows this device (fresh database) gets a fresh registration.
+    const known = await api.me(c).then(() => true, (e: Error) => !String(e.message).startsWith('401'))
+    if (known) return c
+  }
+  const c = await api.register(key.publicHex)
   await bridge.setLocalStorage('thruppence.creds', JSON.stringify(c))
   return c
 }

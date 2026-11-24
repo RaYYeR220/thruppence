@@ -43,9 +43,9 @@ export class ToncenterChain implements ChainPort {
   private readonly pacer: Pacer
   private cache = new Map<string, { at: number; v: ExtInfo }>()
 
-  constructor(endpoint: string, apiKey?: string) {
+  constructor(endpoint: string, apiKey?: string, rps?: number) {
     this.client = new TonClient({ endpoint, ...(apiKey ? { apiKey } : {}) })
-    this.pacer = new Pacer(apiKey ? 120 : 1100)
+    this.pacer = new Pacer(Math.ceil(1000 / (rps ?? (apiKey ? 4 : 0.9))))
   }
 
   async extInfo(ext: string): Promise<ExtInfo> {
@@ -88,7 +88,7 @@ export class ToncenterChain implements ChainPort {
   }
 
   async findPayment(wallet: string, comment: string, sinceSec: number): Promise<{ txHash: string } | null> {
-    const txs = await this.pacer.run(() => this.client.getTransactions(Address.parse(wallet), { limit: 20, archival: true }))
+    const txs = await this.pacer.run(() => this.client.getTransactions(Address.parse(wallet), { limit: 20, archival: false }))
     for (const tx of txs) {
       if (tx.now < sinceSec) continue
       for (const m of tx.outMessages.values()) {

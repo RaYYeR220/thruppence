@@ -1,0 +1,1202 @@
+{
+ "a8fabc69357aebc8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": null,
+  "memo": "concert tickets",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "bedb697924caeb4e": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": null,
+  "memo": "loan until friday",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "096a8bcdc470ad45": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "12.5",
+  "currency": null,
+  "memo": "pizza",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "4f1dc944833c412d": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "12",
+  "currency": null,
+  "memo": "from saturday",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "9cd8b10fe68ad223": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": null,
+  "memo": "owed money",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "4ad62d9768fef963": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": null,
+  "memo": "gas",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "0a129912fb3d0668": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "USD",
+  "memo": "uber",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "88d9917d5e62be10": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "USD",
+  "memo": "cab home",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "b0529f3f4df8ed1d": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "7.50",
+  "currency": "TON",
+  "memo": "coffee beans",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "2438e07b782b99c3": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "3",
+  "currency": "TON",
+  "memo": "for the bet",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "037bcc118395ea5b": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "10",
+  "currency": "TON",
+  "memo": "half of netflix this month",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "4424005199ca1146": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "45",
+  "currency": null,
+  "memo": "hoodie",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "93a0dd55925fee6f": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": null,
+  "memo": "festival pass",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "b3fdfe354098d9db": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "18",
+  "currency": "TON",
+  "memo": "lunch",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "4959b0b16c168ec8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": null,
+  "memo": "tickets",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "7ffeb275a6767040": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": null,
+  "memo": "pharmacy, card declined",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "d17c6de2a49f2ecb": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "60",
+  "currency": null,
+  "memo": "landlord payment",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "4cad5a1510a34d18": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "22",
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "1f9c36d7c1e45b4d": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "0.5",
+  "currency": "TON",
+  "memo": "fees",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "183d69143531d602": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "100",
+  "currency": null,
+  "memo": "loan until payday",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "7a07628fa8c94be0": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "TON",
+  "memo": "билеты в кино",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "fca16319846dcb9c": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "12,5",
+  "currency": null,
+  "memo": "пицца",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "4175e514a61d2cb4": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "USD",
+  "memo": "до пятницы",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "79ab75e912f416c8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "35",
+  "currency": null,
+  "memo": "за концерт",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "e74e489aa3dfe11c": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": "TON",
+  "memo": "до зп",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "baceee6e9e37e2fc": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": "TON",
+  "memo": "срочно, потом объясню",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "00d51f06357df7cd": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": "GRAM",
+  "memo": "такси",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "53f1d0bf5a94f20f": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "تذاكر",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "e19f6d3a2959ea6b": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "USD",
+  "memo": "حق العشا امبارح",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "47c705c343b3f290": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "12",
+  "currency": null,
+  "memo": "باقي من الأسبوع الماضي",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "df578c7f5329adcd": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": null,
+  "memo": "طلب تحويل للمطار",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "69a402bde2535169": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": null,
+  "memo": "regalo de ana",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "b0c7da8ff57fa409": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "USD",
+  "memo": "cena",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "928af79346c66fcb": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "бензин",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "403caea033ca72c7": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "hoodie",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "1d2f2827bdb044b6": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "30",
+  "currency": null,
+  "memo": "dinner split",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "d7375535c8a24ea7": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "30",
+  "currency": null,
+  "memo": "boat trip",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "208704b7cf9812fb": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "15",
+  "currency": null,
+  "memo": "airbnb share",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "f4cbabe212e8751a": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "7",
+  "currency": null,
+  "memo": "uber split 3 ways",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "892b433d1eb5ee3f": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "18.75",
+  "currency": "USD",
+  "memo": "groceries",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "e79bbaf6d69ee590": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "90",
+  "currency": null,
+  "memo": "concert tickets",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "159b928f16194017": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "32",
+  "currency": null,
+  "memo": "karaoke",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "02756657f7d8fbe9": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "30",
+  "currency": "TON",
+  "memo": "ужин на троих",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "b646b1af3cab32f3": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "50",
+  "currency": null,
+  "memo": "дом на выходные",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "e9d01bcf7b98338b": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "12",
+  "currency": "USD",
+  "memo": "такси",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "809b3c2ad3a12d37": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "20",
+  "currency": "USD",
+  "memo": "حصتك من العشاء",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "c3348b0e7531460e": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "20",
+  "currency": null,
+  "memo": "cena",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "6b99f19e61992991": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "150",
+  "currency": "TON",
+  "memo": "Logo work",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "1cff3bbc83fc9ede": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "75",
+  "currency": null,
+  "memo": "3 hours of editing at 25/hr",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "2b09d8526c5851a1": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "180",
+  "currency": "USD",
+  "memo": "Rent for the room this month",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "f1117b53902c742b": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": "TON",
+  "memo": "lessons this week",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "0720bbfd4bb0db30": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "120",
+  "currency": null,
+  "memo": "remaining 50% of website payment",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "02d1f7afa89b4179": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "35",
+  "currency": "USD",
+  "memo": "Invoice #0042 - translation",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "27b7ad0cc83772b6": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "60",
+  "currency": "TON",
+  "memo": "Занятия по английскому, 4 занятия",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "cb334fcddcf276b4": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "45",
+  "currency": "USD",
+  "memo": "ремонт ноутбука, деталь установлена",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "a7646d3acb7b63ea": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "90",
+  "currency": "TON",
+  "memo": "فاتورة تصميم الشعار",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "6c1cbe7832f7347a": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "80",
+  "currency": null,
+  "memo": "2 sesiones de fotos",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "d6d84e3cc9e25fa7": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "20",
+  "currency": null,
+  "memo": "money returned",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "4274ace74efc7f44": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "2e17eb651770455a": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "580b0e3492d6d8ce": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "2a8efb81aa9db58d": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "a328abe2ad3af60f": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "7494d90bf0f5ba36": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "6ce2d83b428f9d0c": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "6032bbd5b3b42356": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "8397f9b2b60d8df3": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "3e075ee121861f17": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "2dc1a43126d86d37": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "birthday gift",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "5442aac395444462": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": null,
+  "currency": null,
+  "memo": "repay loan",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "08645d2b825d7aad": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": null,
+  "currency": null,
+  "memo": "loan",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "eb7c1b8300ce6b2d": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "a4ef5c6462ea8807": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "12",
+  "currency": null,
+  "memo": "refund for cancelled order",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "153cfea9450d6782": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "5",
+  "currency": "TON",
+  "memo": "how to send TON in app",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "3c1d8c10de3c789d": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "30",
+  "currency": null,
+  "memo": "trip",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "08e918337eb918d6": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "200",
+  "currency": null,
+  "memo": "rent payment due Friday",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "307e7723071426c0": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "52faad5a5f375613": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "48",
+  "currency": null,
+  "memo": "table bill",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "7ba790f363d53052": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "6c948a23772b18aa": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "ba3377744620d5be": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "12",
+  "currency": null,
+  "memo": "drinks",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "84da067fb9ebe679": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "вернул долг",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "01f21ff9b137eba2": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "e4dc4478bfed5cef": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "67adb267d78a409c": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "25",
+  "currency": null,
+  "memo": "подарок",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "d97418ade51307c4": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "15",
+  "currency": null,
+  "memo": "пицца",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "ff8f4f0a3a631b68": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "50",
+  "currency": null,
+  "memo": "лекарства",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "7f5079293026b2a0": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "30",
+  "currency": "TON",
+  "memo": "",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "5247060fa37382f8": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "25",
+  "currency": "USD",
+  "memo": "تذكرة",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "269c5c4a2136455c": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "38d98aceefa9fcf1": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": null,
+  "memo": "مبلغ مستحق لأخي",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "ffd77e39617ac379": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "20",
+  "currency": null,
+  "memo": "devolución de préstamo",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "59a026fb1446fe5a": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": null,
+  "currency": null,
+  "memo": "cena",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": false
+ },
+ "e7f598f3746dd2f8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "5",
+  "currency": "TON",
+  "memo": "verify wallet ownership",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "3fe5ab6373c452d8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": "TON",
+  "memo": "unlock and restore account access",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "a9eb7df9baa670a2": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": "TON",
+  "memo": "TON giveaway: send 10 TON to receive 20",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "2b4f47e4e313ba68": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "double your TON giveaway",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "3ee0de333c822769": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "USD",
+  "memo": "Registration fee for data-entry job",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "c89c370d757aad05": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "150",
+  "currency": null,
+  "memo": "customs fee to release bag",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "a7088cb0c08b92b7": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": null,
+  "memo": "new account, lost old one",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "01e975f0c32e0283": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "8",
+  "currency": "TON",
+  "memo": "network fee to claim lottery prize",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "10b10d72c1635576": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "100",
+  "currency": "TON",
+  "memo": "investment, guaranteed weekly profit",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "1c233b7ddd595491": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "Fragment username sale deposit",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "7e8fef29d419a330": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "3",
+  "currency": "TON",
+  "memo": "верификация кошелька",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "c000b54d8725cb5a": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "60",
+  "currency": "TON",
+  "memo": "перевод на новый аккаунт",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "7ce3c8ab9668d955": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "USD",
+  "memo": "оплата обучения для работы на дому",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "b74fce90cf608030": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": "TON",
+  "memo": "رسوم استلام الجائزة",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "d4ed7135cb83f7d7": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "تحقق من الحساب",
+  "urgency": true,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "e8f401f4d24a44b0": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": "TON",
+  "memo": "inversión garantizada 24h",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ },
+ "931a7287fbbdd71a": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": false
+ },
+ "e49e8bb243db5f5c": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": true
+ },
+ "54dc15667e52edbe": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": null,
+  "memo": null,
+  "urgency": true,
+  "addresses_assistant": true,
+  "scam": false
+ },
+ "d3d922fe72a3e104": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": false
+ },
+ "a4b32d261faa8341": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": null,
+  "memo": "movie",
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": false
+ },
+ "d4d315fe6ca7fdd2": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "60",
+  "currency": "GRAM",
+  "memo": "",
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": true
+ },
+ "761335e31c7288bf": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": null,
+  "memo": "lunch",
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": true
+ },
+ "0e6fa4c4676d3019": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "50",
+  "currency": "TON",
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": false
+ },
+ "31bcb5454c6d2c1b": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "35",
+  "currency": "TON",
+  "memo": null,
+  "urgency": true,
+  "addresses_assistant": true,
+  "scam": true
+ },
+ "fa0c37abf154ef8e": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": "TON",
+  "memo": "",
+  "urgency": false,
+  "addresses_assistant": true,
+  "scam": false
+ },
+ "6ae9bd6cd3765f7a": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": null,
+  "memo": "tickets",
+  "urgency": false,
+  "addresses_assistant": false,
+  "scam": true
+ }
+}

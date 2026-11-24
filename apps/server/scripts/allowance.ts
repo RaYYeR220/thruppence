@@ -19,14 +19,17 @@ const env = (k: string, d?: string) => {
   return v
 }
 const sleep = (ms: number) => new Promise(r => setTimeout(r, ms))
-const client = new TonClient({ endpoint: 'https://testnet.toncenter.com/api/v2/jsonRPC', ...(process.env.TONCENTER_API_KEY ? { apiKey: process.env.TONCENTER_API_KEY } : {}) })
+const client = new TonClient({
+  endpoint: process.env.TONCENTER_ENDPOINT ?? 'https://testnet.toncenter.com/api/v2/jsonRPC',
+  ...(process.env.TONCENTER_API_KEY ? { apiKey: process.env.TONCENTER_API_KEY } : {}),
+})
 const fmt = (a: Address) => a.toString({ testOnly: true, bounceable: false })
 
 let lastCall = 0
 async function retry<T>(fn: () => Promise<T>, tries = 6): Promise<T> {
   for (let i = 0; ; i++) {
     // Keyless toncenter allows one request per second.
-    const gap = (process.env.TONCENTER_API_KEY ? 150 : 1200) - (Date.now() - lastCall)
+    const gap = (process.env.TONCENTER_API_KEY ? 300 : 1200) - (Date.now() - lastCall)
     if (gap > 0) await sleep(gap)
     lastCall = Date.now()
     try {
@@ -42,10 +45,12 @@ async function main() {
   const [cmd, ...args] = process.argv.slice(2)
   const kp = await mnemonicToPrivateKey(env('OWNER_MNEMONIC').split(/\s+/))
   const owner = WalletContractV5R1.create({ workchain: 0, publicKey: kp.publicKey, walletId: { networkGlobalId: NETWORK.testnet } })
-  const seed = Buffer.from(env('DEVICE_SEED'), 'hex')
+  // Setup only needs the device's public key; paying needs its seed.
+  const seed = process.env.DEVICE_SEED ? Buffer.from(process.env.DEVICE_SEED, 'hex') : null
+  const pub = seed ? devicePublicKey(seed) : new Uint8Array(Buffer.from(env('DEVICE_PUB'), 'hex'))
   const plan = {
     owner: owner.address.toRawString(),
-    devicePublicKey: devicePublicKey(seed),
+    devicePublicKey: pub,
     networkId: NETWORK.testnet,
     perTxNano: toNano(env('PER_TX', '0.5')),
     dailyNano: toNano(env('DAILY', '1.5')),
@@ -106,6 +111,7 @@ async function main() {
       requestId: rid,
       comment: `Thruppence #${rid} · ${memo.join(' ') || 'test'}`,
     }
+    if (!seed) throw new Error('DEVICE_SEED is needed to pay')
     const boc = signPayExternal(params, seed)
     await retry(() => client.sendFile(Buffer.from(boc, 'base64')), 1)
     console.log('sent', params.comment)

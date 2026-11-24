@@ -87,6 +87,7 @@ const raw = (over: Partial<RawIntent> = {}): RawIntent => ({
   memo: 'taxi home',
   urgency: false,
   addresses_assistant: false,
+  scam: false,
   ...over,
 })
 
@@ -245,5 +246,20 @@ describe('service', () => {
     llm.voiceNext = { kind: 'pay', amountNano: '1000000000', reply: 'enjoy!' }
     await svc.pttStop(PAYER)
     expect(lens.of('voice_intent')[0]!.intent).toEqual({ kind: 'pay', amountNano: '1000000000', reply: 'enjoy!' })
+  })
+})
+
+describe('reconciliation', () => {
+  it('a payment that timed out but landed later is still settled with a receipt', async () => {
+    const { askId } = await incoming()
+    await svc.decision(PAYER, { askId: askId!, action: 'pay' })
+    await svc.signed(PAYER, askId!, 'boc==')
+    for (let i = 0; i < 60 && store.ask(askId!)!.status !== 'failed'; i++) await tick()
+    expect(store.ask(askId!)!.status).toBe('failed')
+    chain.landed.set('Thruppence #41 · taxi home', 'late1')
+    await svc.resume()
+    for (let i = 0; i < 20 && store.ask(askId!)!.status !== 'paid'; i++) await tick()
+    expect(store.ask(askId!)).toMatchObject({ status: 'paid', tx_hash: 'late1' })
+    expect(tg.sent.some(m => m.text.includes('late1'))).toBe(true)
   })
 })

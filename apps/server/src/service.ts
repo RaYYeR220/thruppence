@@ -22,7 +22,7 @@ export interface ServiceConfig {
   usdPerGram: () => number | null
   demo?: DemoWallet
   /** Checks that a signed external message pays exactly what the params say. */
-  verifySigned: (boc: string, params: PayParams) => boolean
+  verifySigned: (boc: string, params: PayParams, tgId?: string) => boolean
 }
 
 export interface IncomingMsg {
@@ -68,6 +68,7 @@ export const REFUSALS: Record<number, string> = {
  */
 export class Service {
   private pending = new Map<string, { params: PayParams; startedAt: number }>()
+  private watching = new Set<string>()
   private audio = new Map<string, { askId?: string; chunks: Buffer[] }>()
   private demoQueue: Promise<unknown> = Promise.resolve()
 
@@ -148,7 +149,7 @@ export class Service {
       usdPerGram: this.cfg.usdPerGram(),
     }
     const raw = m.structured
-      ? { is_request: true, kind: 'pay_request' as const, amount: formatGram(m.structured.amountNano).replace(/,/g, ''), currency: 'GRAM' as const, memo: m.structured.memo, urgency: false, addresses_assistant: false }
+      ? { is_request: true, kind: 'pay_request' as const, amount: formatGram(m.structured.amountNano).replace(/,/g, ''), currency: 'GRAM' as const, memo: m.structured.memo, urgency: false, addresses_assistant: false, scam: false }
       : await this.llm.extract(text)
     const verdict = validate(raw, ctx)
     if (!verdict.draft) return { dropped: verdict.dropped ?? 'not_a_request' }
@@ -263,12 +264,42 @@ export class Service {
     }
   }
 
+  /**
+   * Reconciles relayed payments that are not confirmed yet: after a restart,
+   * and for ones that timed out but may still have landed. Runs every minute.
+   */
+  async resume() {
+    const rows = this.store.db
+      .prepare(`SELECT ask_id FROM asks WHERE status = 'sent' OR (status = 'failed' AND updated_at > ?)`)
+      .all(this.clock.now() - 2 * 3600_000) as { ask_id: string }[]
+    for (const { ask_id } of rows) {
+      if (this.watching.has(ask_id)) continue
+      const row = this.store.ask(ask_id)!
+      const w = this.wallets(row.payer_tg_id)
+      if (!w || !row.ask.recipient) continue
+      const params: PayParams = {
+        askId: ask_id,
+        networkId: this.cfg.networkId,
+        extAddress: w.ext,
+        seqno: 0,
+        validUntil: 0,
+        dest: row.ask.recipient.address,
+        amountNano: row.amount_nano ?? row.ask.amountNano,
+        bounce: false,
+        requestId: row.request_id,
+        comment: `Thruppence #${row.request_id} · ${row.ask.memo}`.slice(0, 110),
+      }
+      this.pending.set(ask_id, { params, startedAt: row.created_at })
+      void this.waitConfirmed(row.payer_tg_id, ask_id)
+    }
+  }
+
   /** The device signed the PayRequest; relay it and watch for the transfer. */
   async signed(tgId: string, askId: string, boc: string) {
     const row = this.store.ask(askId)
     const p = this.pending.get(askId)
     if (!row || row.payer_tg_id !== tgId || !p || row.status !== 'paying') return
-    if (!this.cfg.verifySigned(boc, p.params)) {
+    if (!this.cfg.verifySigned(boc, p.params, tgId)) {
       this.store.transition(askId, ['paying'], 'open')
       return this.fail(tgId, askId, 'The signed payment did not match the ask.')
     }
@@ -287,22 +318,27 @@ export class Service {
   private async waitConfirmed(tgId: string, askId: string) {
     const p = this.pending.get(askId)
     const w = this.wallets(tgId)
-    if (!p || !w) return
-    const deadline = this.clock.now() + this.cfg.confirmTimeoutMs
-    const since = Math.floor(p.startedAt / 1000) - 5
-    while (this.clock.now() < deadline) {
-      await new Promise(r => setTimeout(r, this.cfg.confirmPollMs))
-      const found = await this.chain.findPayment(w.wallet, p.params.comment, since).catch(() => null)
-      if (found) return this.settle(tgId, askId, found.txHash)
+    if (!p || !w || this.watching.has(askId)) return
+    this.watching.add(askId)
+    try {
+      const deadline = this.clock.now() + this.cfg.confirmTimeoutMs
+      const since = Math.floor(p.startedAt / 1000) - 5
+      while (this.clock.now() < deadline) {
+        await new Promise(r => setTimeout(r, this.cfg.confirmPollMs))
+        const found = await this.chain.findPayment(w.wallet, p.params.comment, since).catch(() => null)
+        if (found) return await this.settle(tgId, askId, found.txHash)
+      }
+      if (this.store.transition(askId, ['sent'], 'failed')) {
+        this.fail(tgId, askId, 'TON has not confirmed it yet. The receipt will follow in the chat if it lands.')
+      }
+    } finally {
+      this.watching.delete(askId)
     }
-    this.store.transition(askId, ['sent'], 'failed')
-    this.pending.delete(askId)
-    this.fail(tgId, askId, 'TON has not confirmed it yet. Check the chat for the receipt.')
   }
 
   private async settle(tgId: string, askId: string, txHash: string) {
     const p = this.pending.get(askId)
-    if (!p || !this.store.transition(askId, ['sent'], 'paid', { tx_hash: txHash })) return
+    if (!p || !this.store.transition(askId, ['sent', 'failed'], 'paid', { tx_hash: txHash })) return
     this.pending.delete(askId)
     const row = this.store.ask(askId)!
     this.store.markPaidTo(tgId, p.params.dest)

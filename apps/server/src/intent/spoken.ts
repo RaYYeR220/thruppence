@@ -15,8 +15,19 @@ const RU: Record<string, number> = {
   одиннадцать: 11, двенадцать: 12, пятнадцать: 15, двадцать: 20, тридцать: 30, сорок: 40, пятьдесят: 50, сто: 100,
 }
 
+const AR: Record<string, number> = {
+  واحد: 1, اثنين: 2, اثنان: 2, ثلاثة: 3, ثلاث: 3, أربعة: 4, اربعة: 4, خمسة: 5, خمس: 5, ستة: 6, سبعة: 7, ثمانية: 8, تسعة: 9,
+  عشرة: 10, عشر: 10, عشرين: 20, عشرون: 20, ثلاثين: 30, اربعين: 40, أربعين: 40, خمسين: 50, مية: 100, مائة: 100, مئة: 100,
+}
+
+const ES: Record<string, number> = {
+  uno: 1, una: 1, dos: 2, tres: 3, cuatro: 4, cinco: 5, seis: 6, siete: 7, ocho: 8, nueve: 9, diez: 10,
+  quince: 15, veinte: 20, treinta: 30, cuarenta: 40, cincuenta: 50, cien: 100,
+}
+
 export function spokenToDigits(input: string): string {
-  let t = input
+  // Arabic-Indic and Eastern Arabic digits → 0-9; Arabic decimal comma → point.
+  let t = input.replace(/[٠-٩]/g, d => String(d.charCodeAt(0) - 0x0660)).replace(/[۰-۹]/g, d => String(d.charCodeAt(0) - 0x06f0)).replace(/٫/g, '.')
   t = t.replace(/\bone and a half\b/gi, '1.5').replace(/\b(a|one) half\b/gi, '0.5').replace(/\bhalf a\b/gi, '0.5')
   t = t.replace(/полтора|полторы/gi, '1.5')
   t = t.replace(/\b(twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)[\s-]+(one|two|three|four|five|six|seven|eight|nine)\b/gi, (_, a: string, b: string) =>
@@ -30,5 +41,10 @@ export function spokenToDigits(input: string): string {
     return w
   })
   t = t.replace(/[а-яё]+/gi, w => (w.toLowerCase() in RU ? String(RU[w.toLowerCase()]) : w))
+  t = t.replace(/[؀-ۿ]+/g, w => {
+    const bare = w.replace(/^(و|ب)/, '')
+    return bare in AR ? String(AR[bare]) : w in AR ? String(AR[w]) : w
+  })
+  t = t.replace(/[a-záéíóúñ]+/gi, w => (w.toLowerCase() in ES ? String(ES[w.toLowerCase()]) : w))
   return t
 }

@@ -83,12 +83,28 @@ function asNumber(amount: string): number | null {
   return n.length === 1 ? n[0]! : null
 }
 
-/** The amount must be written in the message, or be a fair share of two numbers in it ("120 … 4 of us"). */
+/** Words that split a bill without a digit: "half", "пополам", "на троих", "نص". */
+const SHARE_WORDS: [RegExp, number][] = [
+  [/\bhalf\b|пополам|напополам|половин|\bmitad\b|نص|نصف/i, 2],
+  [/на двоих|\bentre dos\b/i, 2],
+  [/на троих|three ways|\b3 ways\b|\bentre tres\b/i, 3],
+  [/на четверых|four ways|\b4 ways\b|\bentre cuatro\b/i, 4],
+  [/на пятерых|five ways/i, 5],
+]
+
+/**
+ * The amount must be written in the message, or follow from numbers in it:
+ * a fair share ("120 … 4 of us", "24, давай пополам") or a small multiple
+ * ("45 each and you had 2", "2 x 20").
+ */
 export function isGrounded(amount: number, text: string): boolean {
-  const nums = numbersIn(spokenToDigits(text))
+  const t = spokenToDigits(text)
+  const nums = numbersIn(t)
   const eq = (a: number, b: number) => Math.abs(a - b) < 0.005
   if (nums.some(n => eq(n, amount))) return true
-  for (const a of nums) for (const b of nums) if (b >= 2 && b <= 50 && eq(a / b, amount)) return true
+  const divisors = [...nums.filter(b => b >= 2 && b <= 50), ...SHARE_WORDS.filter(([r]) => r.test(t)).map(([, d]) => d)]
+  for (const a of nums) for (const d of divisors) if (eq(a / d, amount)) return true
+  for (const a of nums) for (const b of nums) if (b >= 2 && b <= 10 && a !== b && eq(a * b, amount)) return true
   return false
 }
 
@@ -102,7 +118,7 @@ function toNano(amount: number, currency: RawIntent['currency'], usdPerGram: num
 }
 
 function level(reasons: RiskReason[]): Risk['level'] {
-  const blocking: RiskReason['code'][] = ['over_tx_cap', 'over_daily_cap', 'address_mismatch', 'no_wallet', 'paused']
+  const blocking: RiskReason['code'][] = ['over_tx_cap', 'over_daily_cap', 'address_mismatch', 'no_wallet', 'paused', 'scam_pattern']
   if (reasons.some(r => blocking.includes(r.code))) return 'block'
   return reasons.length ? 'warn' : 'ok'
 }
@@ -123,7 +139,8 @@ export function validate(raw: RawIntent | null, ctx: ValidateCtx): Verdict {
 
   const reasons: RiskReason[] = []
   const inText = addressesIn(ctx.text)
-  const scammy = raw.addresses_assistant || SCAM_PHRASES.some(r => r.test(ctx.text))
+  // The model may only ever add a refusal, never remove one: a scam shape or words aimed at a bot block the card.
+  const scammy = raw.addresses_assistant || raw.scam || SCAM_PHRASES.some(r => r.test(ctx.text))
 
   let recipient: Ask['recipient'] = null
   if (ctx.requesterCard) {

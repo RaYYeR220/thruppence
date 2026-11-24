@@ -50,7 +50,7 @@ export class Store {
         owner_address TEXT, wallet_address TEXT, ext_address TEXT, demo INTEGER NOT NULL DEFAULT 0,
         created_at INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS devices (
-        device_id TEXT PRIMARY KEY, token TEXT NOT NULL, tg_id TEXT, created_at INTEGER NOT NULL);
+        device_id TEXT PRIMARY KEY, token TEXT NOT NULL, tg_id TEXT, pub TEXT, created_at INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS pair_codes (
         code TEXT PRIMARY KEY, device_id TEXT NOT NULL, expires_at INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS asks (
@@ -100,12 +100,18 @@ export class Store {
     return this.db.prepare('SELECT * FROM users WHERE business_connection_id = ?').get(connectionId) as UserRow | undefined
   }
 
-  addDevice(deviceId: string, token: string) {
-    this.db.prepare('INSERT OR REPLACE INTO devices (device_id, token, tg_id, created_at) VALUES (?, ?, NULL, ?)').run(deviceId, token, Date.now())
+  addDevice(deviceId: string, token: string, pub: string | null = null) {
+    this.db.prepare('INSERT OR REPLACE INTO devices (device_id, token, tg_id, pub, created_at) VALUES (?, ?, NULL, ?, ?)').run(deviceId, token, pub, Date.now())
   }
 
-  device(deviceId: string): { device_id: string; token: string; tg_id: string | null } | undefined {
-    return this.db.prepare('SELECT device_id, token, tg_id FROM devices WHERE device_id = ?').get(deviceId) as never
+  device(deviceId: string): { device_id: string; token: string; tg_id: string | null; pub: string | null } | undefined {
+    return this.db.prepare('SELECT device_id, token, tg_id, pub FROM devices WHERE device_id = ?').get(deviceId) as never
+  }
+
+  /** The device key of the phone paired to this user, if one registered it. */
+  devicePubFor(tgId: string): string | null {
+    const r = this.db.prepare('SELECT pub FROM devices WHERE tg_id = ? AND pub IS NOT NULL ORDER BY created_at DESC').get(tgId) as { pub: string } | undefined
+    return r?.pub ?? null
   }
 
   bindDevice(deviceId: string, tgId: string) {

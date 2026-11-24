@@ -1,6 +1,6 @@
 import type { LensToServer, ServerToLens } from '@thruppence/core'
 
-export const SERVER = (import.meta.env.VITE_SERVER_URL as string | undefined) ?? 'http://127.0.0.1:8787'
+export const SERVER = (import.meta.env.VITE_SERVER_URL as string | undefined) ?? 'http://127.0.0.1:8791'
 const WS_URL = SERVER.replace(/^http/, 'ws') + '/lens'
 
 export interface Creds {
@@ -14,7 +14,8 @@ async function json<T>(res: Response): Promise<T> {
 }
 
 export const api = {
-  register: () => fetch(`${SERVER}/api/devices`, { method: 'POST' }).then(r => json<Creds>(r)),
+  register: (pub: string) =>
+    fetch(`${SERVER}/api/devices`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ pub }) }).then(r => json<Creds>(r)),
   pair: (c: Creds) =>
     fetch(`${SERVER}/api/pair`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(c) }).then(r =>
       json<{ code: string; link: string }>(r),
