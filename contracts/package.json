@@ -8,7 +8,8 @@
     "build": "ts-node scripts/build.ts",
     "test": "jest --runInBand",
     "typecheck": "tsc --noEmit",
-    "fixture": "ts-node scripts/make-fixture.ts"
+    "fixture": "ts-node scripts/make-fixture.ts",
+    "export-codes": "ts-node scripts/export-codes.ts"
   },
   "devDependencies": {
     "@tact-lang/compiler": "^1.6.13",
