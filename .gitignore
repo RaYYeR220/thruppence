@@ -11,19 +11,8 @@ coverage/
 *.boc.local
 .DS_Store
 Thumbs.db
-# working material that never ships
+# design exploration stays out of the repo
 ui-prototypes/
 mockups/
 variants/
 design-ref/
-.claude/
-.remember/
-docs/superpowers/
-SHIP-STATE.md
-SPEC.md
-PLAN.md
-BRIEF.md
-*-internal/
-*.bundle
-*-backup*
-.playwright-mcp/
