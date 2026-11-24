@@ -5,6 +5,16 @@
   "version": "0.1.0",
   "min_sdk_version": "0.0.14",
   "entrypoint": "index.html",
-  "permissions": [],
+  "permissions": [
+    {
+      "name": "network",
+      "desc": "Receives money asks from your linked Telegram account and sends the payments you approve.",
+      "whitelist": ["https://34-18-18-137.sslip.io", "wss://34-18-18-137.sslip.io"]
+    },
+    {
+      "name": "g2-microphone",
+      "desc": "Hold the ring to say an amount or a short reply. Audio is sent only while you hold."
+    }
+  ],
   "supported_languages": ["en"]
 }
