@@ -46,7 +46,9 @@ const items: Item[] = readFileSync(new URL(`./data/${DATA}.jsonl`, import.meta.u
 
 mkdirSync(new URL('./cache/', import.meta.url), { recursive: true })
 // Answers are cached per model and per prompt, so a prompt change never reuses old answers.
-const PROMPT_ID = createHash('sha256').update(SYSTEM_PROMPT).digest('hex').slice(0, 8)
+const PROMPT_ID = process.argv.includes('--prompt-id')
+  ? process.argv[process.argv.indexOf('--prompt-id') + 1]!
+  : createHash('sha256').update(SYSTEM_PROMPT).digest('hex').slice(0, 8)
 const cachePath = new URL(`./cache/${MODEL}-${PROMPT_ID}.json`, import.meta.url)
 const cache: Record<string, RawIntent | null> = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, 'utf8')) : {}
 const key = (t: string) => createHash('sha256').update(t).digest('hex').slice(0, 16)
