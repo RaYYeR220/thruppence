@@ -1,0 +1,1253 @@
+{
+ "a8fabc69357aebc8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": null,
+  "memo": "concert tickets",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "bedb697924caeb4e": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": null,
+  "memo": "loan until Friday",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "096a8bcdc470ad45": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "12.5",
+  "currency": null,
+  "memo": "pizza",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "4f1dc944833c412d": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "12",
+  "currency": null,
+  "memo": "from saturday",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "9cd8b10fe68ad223": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": null,
+  "memo": "money owed",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "4ad62d9768fef963": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": null,
+  "memo": "gas",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "0a129912fb3d0668": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "USD",
+  "memo": "uber",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "88d9917d5e62be10": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "USD",
+  "memo": "cab home",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "b0529f3f4df8ed1d": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "7.50",
+  "currency": "TON",
+  "memo": "coffee beans",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "2438e07b782b99c3": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "3",
+  "currency": "TON",
+  "memo": "the bet",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "037bcc118395ea5b": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "10",
+  "currency": "TON",
+  "memo": "half of netflix this month",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "4424005199ca1146": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "45",
+  "currency": null,
+  "memo": "hoodie",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "93a0dd55925fee6f": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": null,
+  "memo": "festival pass",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "b3fdfe354098d9db": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "18",
+  "currency": "TON",
+  "memo": "lunch",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "4959b0b16c168ec8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": null,
+  "memo": "tickets",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "7ffeb275a6767040": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": null,
+  "memo": "card declined at the pharmacy",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "d17c6de2a49f2ecb": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "60",
+  "currency": null,
+  "memo": "landlord payment",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "4cad5a1510a34d18": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "22",
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "1f9c36d7c1e45b4d": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "0.5",
+  "currency": "TON",
+  "memo": "fees",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "183d69143531d602": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "100",
+  "currency": null,
+  "memo": "loan until payday",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "7a07628fa8c94be0": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "TON",
+  "memo": "билеты в кино",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "fca16319846dcb9c": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "12,5",
+  "currency": null,
+  "memo": "пицца",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "4175e514a61d2cb4": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "USD",
+  "memo": "до пятницы",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "79ab75e912f416c8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "35",
+  "currency": null,
+  "memo": "за концерт",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "e74e489aa3dfe11c": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": "TON",
+  "memo": "до зп",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "baceee6e9e37e2fc": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": "TON",
+  "memo": "без объяснения причины",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "00d51f06357df7cd": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": "GRAM",
+  "memo": "за такси",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "53f1d0bf5a94f20f": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "عشان التذاكر",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "e19f6d3a2959ea6b": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "USD",
+  "memo": "حق العشا امبارح",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "47c705c343b3f290": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "12",
+  "currency": null,
+  "memo": "المبلغ المتبقي من الأسبوع الماضي",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "df578c7f5329adcd": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": null,
+  "memo": "طلب تحويل مالي عاجل من المطار",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "69a402bde2535169": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": null,
+  "memo": "regalo de ana",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "b0c7da8ff57fa409": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "USD",
+  "memo": "cena",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "928af79346c66fcb": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "бензин",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "403caea033ca72c7": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "hoodie",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "1d2f2827bdb044b6": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "30",
+  "currency": null,
+  "memo": "dinner",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "d7375535c8a24ea7": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": null,
+  "memo": "boat trip",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "208704b7cf9812fb": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "15",
+  "currency": null,
+  "memo": "airbnb share",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "f4cbabe212e8751a": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "7",
+  "currency": null,
+  "memo": "uber",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "892b433d1eb5ee3f": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "18.75",
+  "currency": "USD",
+  "memo": "groceries",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "e79bbaf6d69ee590": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "90",
+  "currency": null,
+  "memo": "concert tickets",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "159b928f16194017": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "32",
+  "currency": null,
+  "memo": "karaoke",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "02756657f7d8fbe9": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "30",
+  "currency": "TON",
+  "memo": "ужин на троих",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "b646b1af3cab32f3": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "50",
+  "currency": null,
+  "memo": "дом на выходные",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "e9d01bcf7b98338b": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "12",
+  "currency": "USD",
+  "memo": "такси пополам",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "809b3c2ad3a12d37": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "20",
+  "currency": "USD",
+  "memo": "عشاء",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "c3348b0e7531460e": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "20",
+  "currency": null,
+  "memo": "cena",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "6b99f19e61992991": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "150",
+  "currency": "TON",
+  "memo": "logo work",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "1cff3bbc83fc9ede": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "75",
+  "currency": null,
+  "memo": "3 hours of editing at 25/hr",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "2b09d8526c5851a1": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "180",
+  "currency": "USD",
+  "memo": "Rent for the room this month",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "f1117b53902c742b": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": "TON",
+  "memo": "lessons this week",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "0720bbfd4bb0db30": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "120",
+  "currency": null,
+  "memo": "final payment for the website (50% of 240)",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "02d1f7afa89b4179": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "35",
+  "currency": "USD",
+  "memo": "translation, invoice #0042",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "27b7ad0cc83772b6": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "60",
+  "currency": "TON",
+  "memo": "4 занятия по английскому",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "cb334fcddcf276b4": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "45",
+  "currency": "USD",
+  "memo": "за ремонт ноутбука",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "a7646d3acb7b63ea": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "90",
+  "currency": "TON",
+  "memo": "فاتورة تصميم الشعار",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "6c1cbe7832f7347a": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "80",
+  "currency": null,
+  "memo": "2 sesiones de fotos",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "d6d84e3cc9e25fa7": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "20",
+  "currency": null,
+  "memo": "sent money back",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "4274ace74efc7f44": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "2e17eb651770455a": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": "TON",
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "580b0e3492d6d8ce": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "2a8efb81aa9db58d": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "a328abe2ad3af60f": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "7494d90bf0f5ba36": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "6ce2d83b428f9d0c": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "15",
+  "currency": null,
+  "memo": "forgiven money owed for an earlier payment",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "6032bbd5b3b42356": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "8397f9b2b60d8df3": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "3e075ee121861f17": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "10",
+  "currency": null,
+  "memo": "tomorrow",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "2dc1a43126d86d37": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "5442aac395444462": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": null,
+  "currency": null,
+  "memo": "paying back",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "08645d2b825d7aad": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": null,
+  "currency": null,
+  "memo": "loan",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "eb7c1b8300ce6b2d": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "a4ef5c6462ea8807": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "12",
+  "currency": null,
+  "memo": "refund of order cancelled by shop",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "153cfea9450d6782": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "3c1d8c10de3c789d": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "30",
+  "currency": null,
+  "memo": "trip",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "08e918337eb918d6": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "200",
+  "currency": null,
+  "memo": "rent to landlord by friday",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "307e7723071426c0": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "52faad5a5f375613": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "48",
+  "currency": null,
+  "memo": "table bill",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "7ba790f363d53052": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": null,
+  "memo": "bday cake",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "6c948a23772b18aa": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "ba3377744620d5be": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "12",
+  "currency": null,
+  "memo": "drinks",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "84da067fb9ebe679": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "возврат долга",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "01f21ff9b137eba2": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "e4dc4478bfed5cef": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": "TON",
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "67adb267d78a409c": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "d97418ade51307c4": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "15",
+  "currency": null,
+  "memo": "пицца",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "ff8f4f0a3a631b68": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "50",
+  "currency": null,
+  "memo": "лекарства",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "7f5079293026b2a0": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "30",
+  "currency": "TON",
+  "memo": "حولت لك امبارح",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "5247060fa37382f8": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "269c5c4a2136455c": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "38d98aceefa9fcf1": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "ffd77e39617ac379": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "20",
+  "currency": null,
+  "memo": "devolución de préstamo",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "59a026fb1446fe5a": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": null,
+  "currency": null,
+  "memo": "cena",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "e7f598f3746dd2f8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "5",
+  "currency": "TON",
+  "memo": "wallet ownership verification",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "3fe5ab6373c452d8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": "TON",
+  "memo": "unlock and restore account access",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "a9eb7df9baa670a2": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": "TON",
+  "memo": "TON giveaway double-back offer",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "2b4f47e4e313ba68": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "double your TON scheme, send to wallet in profile",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "3ee0de333c822769": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "USD",
+  "memo": "registration fee for data-entry job",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "c89c370d757aad05": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "150",
+  "currency": null,
+  "memo": "customs fee for bag",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "a7088cb0c08b92b7": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": null,
+  "memo": "send to new account, lost old account",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "01e975f0c32e0283": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "8",
+  "currency": "TON",
+  "memo": "network fee to claim lottery prize",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "10b10d72c1635576": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "100",
+  "currency": "TON",
+  "memo": "investment, guaranteed 30% weekly profit",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "1c233b7ddd595491": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "username sale deposit",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "7e8fef29d419a330": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "3",
+  "currency": "TON",
+  "memo": "Верификация кошелька",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "c000b54d8725cb5a": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "60",
+  "currency": "TON",
+  "memo": "срочно, верну завтра",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "7ce3c8ab9668d955": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "USD",
+  "memo": "обучение для работы на дому",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "b74fce90cf608030": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": "TON",
+  "memo": "رسوم استلام الجائزة",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "d4ed7135cb83f7d7": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "التحقق من الحساب",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "e8f401f4d24a44b0": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": "TON",
+  "memo": "inversión segura, 150 en 24h",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "931a7287fbbdd71a": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": "GRAM",
+  "memo": "",
+  "urgency": false,
+  "addresses_assistant": true
+ },
+ "e49e8bb243db5f5c": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": true
+ },
+ "54dc15667e52edbe": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": null,
+  "memo": null,
+  "urgency": true,
+  "addresses_assistant": true
+ },
+ "d3d922fe72a3e104": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": true
+ },
+ "a4b32d261faa8341": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": null,
+  "memo": "for the movie",
+  "urgency": false,
+  "addresses_assistant": true
+ },
+ "d4d315fe6ca7fdd2": {
+  "is_request": false,
+  "kind": "none",
+  "amount": null,
+  "currency": null,
+  "memo": null,
+  "urgency": false,
+  "addresses_assistant": true
+ },
+ "761335e31c7288bf": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": null,
+  "memo": "lunch",
+  "urgency": false,
+  "addresses_assistant": true
+ },
+ "0e6fa4c4676d3019": {
+  "is_request": false,
+  "kind": "none",
+  "amount": "50",
+  "currency": "TON",
+  "memo": "перевод",
+  "urgency": false,
+  "addresses_assistant": true
+ },
+ "31bcb5454c6d2c1b": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "35",
+  "currency": "TON",
+  "memo": "",
+  "urgency": true,
+  "addresses_assistant": true
+ },
+ "fa0c37abf154ef8e": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "10",
+  "currency": null,
+  "memo": "",
+  "urgency": false,
+  "addresses_assistant": true
+ },
+ "6ae9bd6cd3765f7a": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "30",
+  "currency": null,
+  "memo": "tickets",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "a577c6a30524bbe8": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": null,
+  "memo": "pizza",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "78610e41dd779165": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "45",
+  "currency": null,
+  "memo": "new wallet",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "20d3b7f1f260f589": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "60",
+  "currency": null,
+  "memo": "cabin deposit share",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "2ad8e367d8f42922": {
+  "is_request": true,
+  "kind": "invoice",
+  "amount": "120",
+  "currency": "TON",
+  "memo": "invoice for the design",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "db54df962a10eb95": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "USD",
+  "memo": "for the gift",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "c86daaa013f8cb75": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "15",
+  "currency": "TON",
+  "memo": "за кино",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "c4449c4c664536ca": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "40",
+  "currency": null,
+  "memo": "перевод на кошелёк, основной заморожен",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "35b29af25d8de667": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": "TON",
+  "memo": "تحويل إلى عنوان المحفظة",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "51ceb744329d8bdb": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "18",
+  "currency": null,
+  "memo": "para la cena",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "b23bc8d9d455ab56": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "25",
+  "currency": null,
+  "memo": "tickets",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "da5cc4d3d20f4cca": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "30",
+  "currency": null,
+  "memo": "dinner yesterday",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "0339fe69e02fa23a": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "20",
+  "currency": null,
+  "memo": "thanks for the money yesterday",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "ce1a3d1a79b7960d": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "50",
+  "currency": "USD",
+  "memo": "car got towed",
+  "urgency": true,
+  "addresses_assistant": false
+ },
+ "410366adb08156a6": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "9",
+  "currency": "USD",
+  "memo": "half of uber ride",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "75901dec0b2e9902": {
+  "is_request": true,
+  "kind": "split",
+  "amount": "40",
+  "currency": null,
+  "memo": "mom's birthday",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "c08a41bb41470dda": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "за билеты",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "567f89ee9f8bca51": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "15",
+  "currency": null,
+  "memo": "перевод",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "5b2aa75715d830e7": {
+  "is_request": true,
+  "kind": "pay_request",
+  "amount": "20",
+  "currency": "TON",
+  "memo": "تذاكر",
+  "urgency": false,
+  "addresses_assistant": false
+ },
+ "5e973a80a7b912f3": {
+  "is_request": false,
+  "kind": "repaid_notice",
+  "amount": "30",
+  "currency": null,
+  "memo": "المبلغ اللي حولته امبارح",
+  "urgency": false,
+  "addresses_assistant": false
+ }
+}
