@@ -45,14 +45,14 @@ importers:
         specifier: workspace:*
         version: link:../../packages/core
       '@ton/core':
-        specifier: ^0.62.0
-        version: 0.62.1(@ton/crypto@3.3.0)
+        specifier: ^0.63.1
+        version: 0.63.1(@ton/crypto@3.3.0)
       '@ton/crypto':
         specifier: ^3.3.0
         version: 3.3.0
       '@ton/ton':
         specifier: ^16.3.0
-        version: 16.3.0(@ton/core@0.62.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)
+        version: 16.3.0(@ton/core@0.63.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)
       hono:
         specifier: ^4.6.0
         version: 4.13.21
@@ -75,6 +75,28 @@ importers:
       vitest:
         specifier: ^2.1.0
         version: 2.1.9(@types/node@22.20.5)
+
+  apps/web:
+    dependencies:
+      '@thruppence/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@ton/core':
+        specifier: ^0.63.1
+        version: 0.63.1(@ton/crypto@3.3.0)
+      '@tonconnect/ui':
+        specifier: ^5.0.4
+        version: 5.0.4
+      buffer:
+        specifier: ^6.0.3
+        version: 6.0.3
+    devDependencies:
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vite:
+        specifier: ^6.0.0
+        version: 6.4.6(@types/node@22.20.5)(tsx@4.23.15)(yaml@2.9.1)
 
   contracts:
     devDependencies:
@@ -1267,11 +1289,6 @@ packages:
     peerDependencies:
       '@ton/crypto': '>=3.2.0'
 
-  '@ton/core@0.62.1':
-    resolution: {integrity: sha512-RaEGBo9gCf6ZHyS8SKq1K53pswvYW9E5A6vwUuzFBTRX14g4qMDlB9F+fq4aBE5kN7XyVr8ScQtOJfQj41usCw==}
-    peerDependencies:
-      '@ton/crypto': '>=3.2.0'
-
   '@ton/core@0.63.1':
     resolution: {integrity: sha512-hDWMjlKzc18W2E4OeV3hUP8ohRJNHPD4Wd1+AQJj8zshZyCRT0usrvnExgbNUTo/vntDqCGMzgYWbXxyaA+L4g==}
     peerDependencies:
@@ -1345,14 +1362,29 @@ packages:
   '@tonconnect/isomorphic-eventsource@0.0.1':
     resolution: {integrity: sha512-ODk48pMlqLSOvu3fM0R1sdlz/Cv2y4hSfwtXmLq9ky9+H7ZQfw/16ElpIJ69B4lUvHycxrueNgrRtF9PJHoGMw==}
 
+  '@tonconnect/isomorphic-eventsource@0.0.2':
+    resolution: {integrity: sha512-B4UoIjPi0QkvIzZH5fV3BQLWrqSYABdrzZQSI9sJA9aA+iC0ohOzFwVVGXanlxeDAy1bcvPbb29f6sVUk0UnnQ==}
+
   '@tonconnect/isomorphic-fetch@0.0.2':
     resolution: {integrity: sha512-DAyA4oL7MqbBo9k8+8E+YiWsGCYi6UMhDTcsZjhgzhESkBNG6b+NBkpb1KH4oi0xDZQoknFtY9XogJLuQtSMQQ==}
+
+  '@tonconnect/isomorphic-fetch@0.0.3':
+    resolution: {integrity: sha512-jIg5nTrDwnite4fXao3dD83eCpTvInTjZon/rZZrIftIegh4XxyVb5G2mpMqXrVGk1e8SVXm3Kj5OtfMplQs0w==}
 
   '@tonconnect/protocol@2.4.0':
     resolution: {integrity: sha512-3xg6sMWIrSgW7/f7iPgOb2BI3LaMScjDMqfu20fcEMbOVvNFk3TGAUKK5cJ3pfvUINsyLgPoylcIbPap37jXiA==}
 
+  '@tonconnect/protocol@3.0.0':
+    resolution: {integrity: sha512-YqwllY12+rXsAZgKD5mlRBb6wXEbe9jKXMCFOV387yCKQDMnwXK1fbgKWrroPp9fPDtQHXhilZQNnuAKS/iR/w==}
+
   '@tonconnect/sdk@2.2.0':
     resolution: {integrity: sha512-8plnAXzaLhapUnt47ZqAOQSIQ8NHSvgTSR74QVJdPWqg8128smgGM4cDYewKdBfTD6Lup0odT1WMMrJu+rE4NQ==}
+
+  '@tonconnect/sdk@5.0.2':
+    resolution: {integrity: sha512-lBK6QIx5uEX6MfGxPbyR5UZISQ81AE7OnKZn0fgs2hglHB6sF2KK6o4QS6eYRZvQdIuLnrLxVmuZ1RybDW4k3g==}
+
+  '@tonconnect/ui@5.0.4':
+    resolution: {integrity: sha512-jzhAY2JrWrgqpVeiDHckTWICY4PecyawQ9ppMNxaDxDX10cDIHM4j0nAl5OaOhtaop/rY5ThhaZEvOAdhSfPEw==}
 
   '@tonstudio/parser-runtime@0.0.1':
     resolution: {integrity: sha512-5s4fLkXWxa4SAd7QGGvJXe13GakEo0J3VF5dUI/i3A//bGZxMwCp1FcnbErpNs3y0LcAZoXE5FCUnDowDQptqw==}
@@ -1759,6 +1791,9 @@ packages:
   cjs-module-lexer@2.3.0:
     resolution: {integrity: sha512-lmNyBzi6iYiqyrExTctfmjd8tInx+dHu9PBomTfH5RXS53c27JMFJgzNv5TyAnm3PgGf+MLy0+Ws41/HlVxdKQ==}
 
+  classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+
   cli-cursor@3.1.0:
     resolution: {integrity: sha512-I/zHAwsKf9FqGoXM4WWRACob9+SNukZTd94DWF57E4toouRulbCxcUh6RKUEOQlYTHJnzkPMySvPNaaSLNfLZw==}
     engines: {node: '>=8'}
@@ -1814,6 +1849,9 @@ packages:
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
+
+  csstype@3.2.4:
+    resolution: {integrity: sha512-PoKaoPzQapnEoqUSnHx1u6W6ku8CVEgKsnpmmzU3m1nwkidpPBQ8V/Zq2+bWNrsOKoKLwTGdbx6xF7BXP1zLVQ==}
 
   dataloader@2.2.3:
     resolution: {integrity: sha512-y2krtASINtPFS1rSDjacrFgn1dcUuoREVabwlOGOe4SdxenREqwjwjElAdwvbGM7kgZz9a3KVicWR7vcz8rnzA==}
@@ -2933,6 +2971,10 @@ packages:
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
+    hasBin: true
+
+  ua-parser-js@1.0.41:
+    resolution: {integrity: sha512-LbBDqdIC5s8iROCUjMbW1f5dJQTEFB1+KO9ogbvlb3nm9n4YHa5p4KTvFPWvh2Hs8gZMBuiB1/8+pdfe/tDPug==}
     hasBin: true
 
   uglify-js@3.19.3:
@@ -4109,10 +4151,6 @@ snapshots:
       '@ton/crypto': 3.3.0
       symbol.inspect: 1.0.1
 
-  '@ton/core@0.62.1(@ton/crypto@3.3.0)':
-    dependencies:
-      '@ton/crypto': 3.3.0
-
   '@ton/core@0.63.1(@ton/crypto@3.3.0)':
     dependencies:
       '@ton/crypto': 3.3.0
@@ -4168,17 +4206,6 @@ snapshots:
     dependencies:
       arg: 5.0.2
 
-  '@ton/ton@16.3.0(@ton/core@0.62.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)':
-    dependencies:
-      '@ton/core': 0.62.1(@ton/crypto@3.3.0)
-      '@ton/crypto': 3.3.0
-      axios: 1.21.1
-      dataloader: 2.2.3
-      zod: 3.25.76
-    transitivePeerDependencies:
-      - debug
-      - supports-color
-
   '@ton/ton@16.3.0(@ton/core@0.63.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)':
     dependencies:
       '@ton/core': 0.63.1(@ton/crypto@3.3.0)
@@ -4194,7 +4221,17 @@ snapshots:
     dependencies:
       eventsource: 2.0.2
 
+  '@tonconnect/isomorphic-eventsource@0.0.2':
+    dependencies:
+      eventsource: 2.0.2
+
   '@tonconnect/isomorphic-fetch@0.0.2':
+    dependencies:
+      node-fetch: 2.7.0
+    transitivePeerDependencies:
+      - encoding
+
+  '@tonconnect/isomorphic-fetch@0.0.3':
     dependencies:
       node-fetch: 2.7.0
     transitivePeerDependencies:
@@ -4205,11 +4242,34 @@ snapshots:
       tweetnacl: 1.0.3
       tweetnacl-util: 0.15.1
 
+  '@tonconnect/protocol@3.0.0':
+    dependencies:
+      tweetnacl: 1.0.3
+      tweetnacl-util: 0.15.1
+
   '@tonconnect/sdk@2.2.0':
     dependencies:
       '@tonconnect/isomorphic-eventsource': 0.0.1
       '@tonconnect/isomorphic-fetch': 0.0.2
       '@tonconnect/protocol': 2.4.0
+    transitivePeerDependencies:
+      - encoding
+
+  '@tonconnect/sdk@5.0.2':
+    dependencies:
+      '@tonconnect/isomorphic-eventsource': 0.0.2
+      '@tonconnect/isomorphic-fetch': 0.0.3
+      '@tonconnect/protocol': 3.0.0
+    transitivePeerDependencies:
+      - encoding
+
+  '@tonconnect/ui@5.0.4':
+    dependencies:
+      '@tonconnect/sdk': 5.0.2
+      classnames: 2.5.1
+      csstype: 3.2.4
+      deepmerge: 4.3.1
+      ua-parser-js: 1.0.41
     transitivePeerDependencies:
       - encoding
 
@@ -4628,6 +4688,8 @@ snapshots:
 
   cjs-module-lexer@2.3.0: {}
 
+  classnames@2.5.1: {}
+
   cli-cursor@3.1.0:
     dependencies:
       restore-cursor: 3.1.0
@@ -4671,6 +4733,8 @@ snapshots:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  csstype@3.2.4: {}
 
   dataloader@2.2.3: {}
 
@@ -5983,6 +6047,8 @@ snapshots:
   type-fest@4.41.0: {}
 
   typescript@5.9.3: {}
+
+  ua-parser-js@1.0.41: {}
 
   uglify-js@3.19.3:
     optional: true

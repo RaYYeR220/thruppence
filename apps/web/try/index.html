@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Try Thruppence live</title>
+    <meta name="description" content="Ask a bot for money on Telegram and pay it from a G2 lens with one press. Real TON testnet transfers." />
+    <style>
+      :root { --bg: #f4f3ef; --fg: #141414; --muted: #6b6a66; --line: rgba(20, 20, 20, 0.1); --accent: #1d6b3f; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 "Inter", system-ui, -apple-system, sans-serif; }
+      .wrap { max-width: 1200px; margin: 0 auto; padding: 32px 24px 80px; }
+      nav { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--muted); padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+      nav a { color: inherit; text-decoration: none; }
+      h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 500; letter-spacing: -0.045em; line-height: 1; margin: 48px 0 12px; }
+      .sub { font-size: 19px; color: var(--muted); max-width: 640px; margin: 0 0 32px; }
+      .grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+      @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+      .lens { background: #0b0d0c; border-radius: 18px; padding: 22px; }
+      canvas { width: 100%; aspect-ratio: 2 / 1; display: block; image-rendering: pixelated; cursor: pointer; border-radius: 6px; }
+      .ring { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+      .ring button { background: transparent; color: #c9d6cc; border: 1px solid rgba(201, 214, 204, 0.25); border-radius: 999px; padding: 9px 16px; font: 500 14px/1 inherit; cursor: pointer; }
+      .ring button.main { background: #3cfa44; color: #04130a; border-color: #3cfa44; }
+      .keys { color: #7f8c83; font-size: 12px; margin-top: 10px; }
+      ol.steps { padding-left: 20px; margin: 0 0 24px; }
+      ol.steps li { margin-bottom: 10px; }
+      .cta { display: inline-block; background: var(--fg); color: var(--bg); text-decoration: none; padding: 13px 20px; border-radius: 999px; font-weight: 500; }
+      .cta[aria-disabled] { opacity: 0.4; pointer-events: none; }
+      #status { display: block; margin: 18px 0 6px; font-size: 14px; color: var(--accent); }
+      h2 { font-size: 14px; font-weight: 600; color: var(--muted); margin: 28px 0 8px; }
+      #log { list-style: none; padding: 0; margin: 0; font-size: 14px; }
+      #log li { display: grid; grid-template-columns: 72px 1fr; gap: 4px 10px; padding: 9px 0; border-top: 1px solid var(--line); }
+      #log time { color: var(--muted); font-variant-numeric: tabular-nums; }
+      #log a { grid-column: 2; color: var(--accent); font-size: 13px; }
+      .fine { font-size: 13px; color: var(--muted); margin-top: 28px; max-width: 560px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav><a href="/">Thruppence</a><span>Live on TON testnet</span></nav>
+      <h1>Ask, and see it paid.</h1>
+      <p class="sub">This is the lens a G2 wearer sees. Message the bot like you would message a friend who owes you, then press the ring. A real transfer lands on TON testnet and the receipt comes back to your chat.</p>
+      <div class="grid">
+        <section>
+          <div class="lens">
+            <canvas id="lens" aria-label="Glasses lens, 576 by 288 pixels"></canvas>
+            <div class="ring">
+              <button id="ring-press" class="main">Press ring</button>
+              <button id="ring-up">Swipe ↑</button>
+              <button id="ring-down">Swipe ↓</button>
+              <button id="ring-back">Double press</button>
+            </div>
+            <div class="keys">Keyboard: Space to press, ↑ ↓ to swipe, Esc to go back. Scroll and click on the lens work too.</div>
+          </div>
+        </section>
+        <section>
+          <ol class="steps">
+            <li>Open <b id="bot-name">the bot</b> in Telegram.</li>
+            <li>Ask it for money: <i>“can you send me 0.5 for coffee?”</i></li>
+            <li>Press the ring here. Watch the receipt arrive in your chat.</li>
+          </ol>
+          <a id="open-tg" class="cta" href="#" target="_blank" rel="noopener" aria-disabled="true">Open Telegram</a>
+          <span id="status">Starting…</span>
+          <h2>What just happened</h2>
+          <ol id="log"></ol>
+          <p class="fine">Demo payments come from a shared testnet wallet capped at a few GRAM a day by its limits extension, so try a small amount. If your Telegram profile shows a TON wallet, the demo pays it; otherwise it pays a demo jar. Try a scam too: put someone else's address in your ask and watch the lens refuse it.</p>
+        </section>
+      </div>
+    </div>
+    <script type="module" src="/src/try.ts"></script>
+  </body>
+</html>

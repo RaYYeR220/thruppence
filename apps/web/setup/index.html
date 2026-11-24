@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Set up Thruppence</title>
+    <style>
+      :root { --bg: #f4f3ef; --fg: #141414; --muted: #6b6a66; --line: rgba(20, 20, 20, 0.1); --accent: #1d6b3f; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 "Inter", system-ui, -apple-system, sans-serif; }
+      .wrap { max-width: 560px; margin: 0 auto; padding: 28px 22px 64px; }
+      nav { display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+      nav a { color: inherit; text-decoration: none; }
+      h1 { font-size: 34px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.1; margin: 32px 0 10px; }
+      p { color: #3d3c39; }
+      .step { border-top: 1px solid var(--line); padding: 18px 0; }
+      .step h2 { font-size: 13px; font-weight: 600; color: var(--muted); margin: 0 0 10px; }
+      label { display: grid; grid-template-columns: 1fr 120px; align-items: center; gap: 12px; padding: 6px 0; }
+      input { font: inherit; padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; text-align: right; }
+      .addr { font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); word-break: break-all; }
+      button.primary { width: 100%; padding: 14px; border: 0; border-radius: 999px; background: var(--fg); color: var(--bg); font: 500 16px/1 inherit; cursor: pointer; margin-top: 8px; }
+      button.primary:disabled { opacity: 0.35; cursor: default; }
+      .row { display: flex; gap: 8px; }
+      .row button { flex: 1; padding: 10px; border: 1px solid var(--line); border-radius: 999px; background: transparent; font: inherit; cursor: pointer; }
+      #result { min-height: 24px; color: var(--accent); margin-top: 12px; }
+      small { color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav><a href="/">Thruppence</a><span id="device"></span></nav>
+      <h1>Give your glasses an allowance</h1>
+      <p>Your main wallet stays yours and is never touched by the glasses. You create a small wallet it owns, put some Gram in it, and set limits. Only your glasses can spend from it, and only up to those limits. You can pause or empty it from here at any time.</p>
+      <div class="step">
+        <h2>1 · Connect your main wallet</h2>
+        <div id="connect"></div>
+        <small>Gram Wallet in Telegram, Tonkeeper, MyTonWallet or any TON Connect wallet.</small>
+      </div>
+      <div class="step">
+        <h2>2 · Set the limits</h2>
+        <label>Most per payment (GRAM) <input id="per-tx" value="0.5" inputmode="decimal" /></label>
+        <label>Most per day (GRAM) <input id="daily" value="1.5" inputmode="decimal" /></label>
+        <label>Put in now (GRAM) <input id="fund" value="1" inputmode="decimal" /></label>
+      </div>
+      <div class="step">
+        <h2>3 · Create it, in one confirmation</h2>
+        <p class="addr">Capped wallet: <span id="addr-wallet">connect first</span><br />Limits: <span id="addr-ext">connect first</span></p>
+        <button id="create" class="primary" disabled>Create allowance</button>
+        <div id="result"></div>
+        <a id="explore" hidden target="_blank" rel="noopener">See it on chain ↗</a>
+      </div>
+      <div class="step">
+        <h2>Controls</h2>
+        <div class="row"><button id="pause">Pause payments</button><button id="resume">Resume</button></div>
+        <small>Pausing is sent from your main wallet to the limits contract. The glasses cannot undo it.</small>
+      </div>
+    </div>
+    <script type="module" src="/src/setup.ts"></script>
+  </body>
+</html>
