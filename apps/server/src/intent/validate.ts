@@ -90,6 +90,8 @@ const SHARE_WORDS: [RegExp, number][] = [
   [/на троих|three ways|\b3 ways\b|\bentre tres\b/i, 3],
   [/на четверых|four ways|\b4 ways\b|\bentre cuatro\b/i, 4],
   [/на пятерых|five ways/i, 5],
+  [/\bthird\b|треть|ثلث/i, 3],
+  [/\bquarter\b|четверть|ربع/i, 4],
 ]
 
 /**

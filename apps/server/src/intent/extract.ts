@@ -14,7 +14,7 @@ Decide whether the sender is asking the reader to send money (to the sender or t
 - kind "split": a shared bill where the reader owes a share; amount = the reader's share if the message says it, otherwise the share you can compute from numbers in the message.
 - kind "invoice": a bill for work or goods with an amount.
 - kind "repaid_notice": the sender says they paid or returned money. Not a request.
-- kind "none": anything else, including questions about money, prices, jokes, past tense stories, plans or proposals that ask for an opinion ("we could all chip in 40, what do you think?"), and forwarded or quoted messages where someone else is asking ("[Forwarded from …]", "she asked me for 20").
+- kind "none": anything else, including questions about money, prices, jokes, past tense stories, plans or proposals that ask for an opinion ("we could all chip in 40, what do you think?"), forwarded or quoted messages where someone else is asking ("[Forwarded from …]", "she asked me for 20"), and messages passing on someone else's ask ("my mom says can you send her 50"), because the money would not go to the sender.
 amount: the number exactly as written (keep the digits; no currency sign). null if no amount.
 currency: "GRAM" or "TON" for Gram/Toncoin/тон/грам, "USD" for $/dollars/баксы, "USDT" for USDT/tether, "OTHER" for any other currency, null if not stated.
 memo: what the money is for, at most 40 characters, in the message's language, no names.
