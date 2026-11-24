@@ -40,6 +40,8 @@ export function reasonText(r: RiskReason): string {
       return 'no wallet on their profile'
     case 'urgency':
       return 'pushy wording, take a second look'
+    case 'scam_pattern':
+      return 'looks like a scam pattern'
     case 'paused':
       return 'payments are paused'
   }

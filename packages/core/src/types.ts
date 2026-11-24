@@ -13,6 +13,8 @@ export type RiskReason =
   /** Requester has no wallet on their profile and is not in the address book. */
   | { code: 'no_wallet' }
   | { code: 'urgency' }
+  /** Text tries to steer the assistant, or matches a known scam shape. */
+  | { code: 'scam_pattern' }
   | { code: 'paused' }
 
 export interface Risk {
