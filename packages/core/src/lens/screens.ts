@@ -53,12 +53,13 @@ function askPage(ask: Ask, queueLen: number): LensPage {
   const memo = ask.split ? `${ask.memo} · your share of ${formatGram(ask.split.totalNano)}` : ask.memo
   const risk = ask.risk.reasons.length ? ask.risk.reasons.map(reasonText)[0]! : ''
   const blocked = ask.risk.level === 'block'
-  const footer = blocked ? `■ Can't pay: ${risk}` : ask.risk.level === 'warn' ? `! ${risk}   ● tap to pay` : '● Tap ring to pay      ↕ more'
+  // A refused card keeps its reason on its own line so the footer never has to wrap.
+  const footer = blocked ? "■ Can't pay      ↕ options" : ask.risk.level === 'warn' ? `! ${risk}   ● tap to pay` : '● Tap ring to pay      ↕ more'
   const boxes: Box[] = [
     text('head', M, 10, INNER, 27, fit(head, INNER), 2),
     { type: 'image', name: 'amount', x: M, y: 46, w: 288, h: 96, spec: { kind: 'amount', value: formatGram(ask.amountNano), unit: 'GRAM' } },
     text('memo', 320, 66, 240, 81, fit(memo, 240 * 3), 4),
-    text('to', M, 152, INNER, 27, fit(recipientLine(ask), INNER), 2),
+    text('to', M, 152, INNER, 27, fit(blocked ? risk : recipientLine(ask), INNER), blocked ? 4 : 2),
     text('foot', M, 214, INNER, 58, fit(footer, INNER - 24), blocked ? 3 : 4, {
       capture: true,
       padding: 8,

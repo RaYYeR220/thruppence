@@ -109,9 +109,17 @@ export function drawPage(ctx: Ctx, page: LensPage, opts: { scale?: number; listI
         ctx.stroke()
       }
       ctx.fillStyle = levelColor(b.brightness)
-      const lines = wrap(ctx, b.content, b.w - 2 * (pad + bw))
+      const maxW = b.w - 2 * (pad + bw)
+      const lines = wrap(ctx, b.content, maxW)
       const maxLines = Math.max(1, Math.floor((b.h - 2 * (pad + bw)) / LINE_H))
-      lines.slice(0, maxLines).forEach((ln, i) => ctx.fillText(ln, b.x + pad + bw, b.y + pad + bw + 3 + i * LINE_H))
+      const shown = lines.slice(0, maxLines)
+      // The web font runs wider than the firmware font: never draw past the box, end with an ellipsis instead.
+      shown.forEach((ln, i) => {
+        const last = i === shown.length - 1 && lines.length > maxLines
+        let t = last ? ln + '…' : ln
+        while (t.length > 1 && ctx.measureText(t).width > maxW) t = t.slice(0, -2) + '…'
+        ctx.fillText(t, b.x + pad + bw, b.y + pad + bw + 3 + i * LINE_H)
+      })
     } else {
       const sel = opts.listIndex ?? b.selected
       b.items.forEach((it, i) => {
