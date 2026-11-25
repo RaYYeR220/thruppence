@@ -22,7 +22,8 @@ Every statement we make about Thruppence, tagged by how it is backed.
 | Scams 9/9, messages aimed at the AI 5/5 and swapped addresses 5/5 refused on that set | REPRODUCIBLE | same file, `byCategory` |
 | 24 of 29 genuine asks on that set were paid correctly; the model alone paid 29 | REPRODUCIBLE | same file — our system trades recall for safety |
 | Our first version offered 22 unsafe payments on the development set | REPRODUCIBLE | `eval/results/v1-2026-11-24.json` |
-| Receipts are posted into the original chat as the user | REPRODUCIBLE (offline) | `apps/server/test/service.test.ts` "receipt in the original chat, as the payer"; live once the bot is connected |
+| Receipts are posted into the original chat as the user | VERIFIED-LIVE + REPRODUCIBLE | the real Telegram run in DEPLOYMENTS (tx `e034df6f…`); `apps/server/test/service.test.ts` "receipt in the original chat, as the payer" |
+| One real ask was paid 7.6 s after the press | VERIFIED-LIVE | same run; one measurement on TON testnet, not an average |
 | A payment that times out but lands later still gets its receipt | REPRODUCIBLE | `apps/server/test/service.test.ts` "reconciliation" |
 | One payment costs about 0.0011 GRAM in fees | REPRODUCIBLE | `contracts/results/gas.json` (sandbox, mainnet fee config) |
 | A stolen phone can move at most the daily cap | MODELED | true per window; the anchored window allows up to two caps within 24 hours (see Honest limits) |
