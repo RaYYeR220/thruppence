@@ -263,3 +263,20 @@ describe('reconciliation', () => {
     expect(tg.sent.some(m => m.text.includes('late1'))).toBe(true)
   })
 })
+
+describe('resilience', () => {
+  it('an ask still becomes a card when the chain cannot be read; limits are re-checked at pay time', async () => {
+    const realInfo = chain.extInfo.bind(chain)
+    chain.extInfo = async () => {
+      throw new Error('rpc 500')
+    }
+    const { askId } = await incoming()
+    expect(askId).toBeTruthy()
+    expect(lens.of('ask')[0]!.ask.risk.level).not.toBe('block')
+    chain.extInfo = realInfo
+    chain.info.spentNano = 5_000_000_000n
+    await svc.decision(PAYER, { askId: askId!, action: 'pay' })
+    expect(lens.of('pay_params')).toHaveLength(0)
+    expect(lens.of('pay_failed')[0]!.reason).toContain('left today')
+  })
+})

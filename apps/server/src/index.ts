@@ -34,6 +34,7 @@ const chain = new ToncenterChain(
   env('TONCENTER_ENDPOINT', 'https://testnet.toncenter.com/api/v2/jsonRPC'),
   process.env.TONCENTER_API_KEY,
   process.env.TON_RPS ? Number(process.env.TON_RPS) : undefined,
+  process.env.TON_FALLBACK_ENDPOINT ?? 'https://testnet.toncenter.com/api/v2/jsonRPC',
 )
 const llmCfg = { baseUrl: 'https://api.venice.ai/api/v1', apiKey: env('VENICE_API_KEY'), model: env('LLM_MODEL', 'claude-haiku-5-5'), timeoutMs: 8000 }
 const llm = new VeniceLlm(llmCfg, new Budget(Number(env('LLM_DAILY_CAP', '3000'))))

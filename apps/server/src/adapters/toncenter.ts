@@ -38,23 +38,47 @@ function commentOf(body: Cell): string | null {
   }
 }
 
+const isRefusal = (err: unknown) => /exitcode=\d+/.test(JSON.stringify((err as { response?: { data?: unknown } }).response?.data ?? ''))
+
 export class ToncenterChain implements ChainPort {
   private readonly client: TonClient
   private readonly pacer: Pacer
+  private readonly fallback: { client: TonClient; pacer: Pacer } | null
   private cache = new Map<string, { at: number; v: ExtInfo }>()
 
-  constructor(endpoint: string, apiKey?: string, rps?: number) {
+  /**
+   * @param fallbackEndpoint a second RPC (keyless, slower) used when the first one errors,
+   *   so one provider's hiccup never drops a message or a payment.
+   */
+  constructor(endpoint: string, apiKey?: string, rps?: number, fallbackEndpoint?: string) {
     this.client = new TonClient({ endpoint, ...(apiKey ? { apiKey } : {}) })
     this.pacer = new Pacer(Math.ceil(1000 / (rps ?? (apiKey ? 4 : 0.9))))
+    this.fallback = fallbackEndpoint && fallbackEndpoint !== endpoint ? { client: new TonClient({ endpoint: fallbackEndpoint }), pacer: new Pacer(1100) } : null
+  }
+
+  /** Primary, one retry, then the fallback RPC. Contract refusals are never retried. */
+  private async call<T>(fn: (c: TonClient) => Promise<T>): Promise<T> {
+    try {
+      return await this.pacer.run(() => fn(this.client))
+    } catch (err) {
+      if (isRefusal(err)) throw err
+      await new Promise(r => setTimeout(r, 400))
+      try {
+        return await this.pacer.run(() => fn(this.client))
+      } catch (err2) {
+        if (isRefusal(err2) || !this.fallback) throw err2
+        return this.fallback.pacer.run(() => fn(this.fallback!.client))
+      }
+    }
   }
 
   async extInfo(ext: string): Promise<ExtInfo> {
     const hit = this.cache.get(ext)
     if (hit && Date.now() - hit.at < 2500) return hit.v
     const a = Address.parse(ext)
-    const limits = await this.pacer.run(() => this.client.runMethod(a, 'get_limits'))
-    const spent = await this.pacer.run(() => this.client.runMethod(a, 'get_spent'))
-    const seqno = await this.pacer.run(() => this.client.runMethod(a, 'seqno'))
+    const limits = await this.call(c => c.runMethod(a, 'get_limits'))
+    const spent = await this.call(c => c.runMethod(a, 'get_spent'))
+    const seqno = await this.call(c => c.runMethod(a, 'seqno'))
     const v: ExtInfo = {
       perTxNano: limits.stack.readBigNumber(),
       dailyNano: limits.stack.readBigNumber(),
@@ -67,18 +91,18 @@ export class ToncenterChain implements ChainPort {
   }
 
   balance(addr: string): Promise<bigint> {
-    return this.pacer.run(() => this.client.getBalance(Address.parse(addr)))
+    return this.call(c => c.getBalance(Address.parse(addr)))
   }
 
   async isActive(addr: string): Promise<boolean> {
-    const st = await this.pacer.run(() => this.client.getContractState(Address.parse(addr)))
+    const st = await this.call(c => c.getContractState(Address.parse(addr)))
     return st.state === 'active'
   }
 
   async sendExternal(boc: string): Promise<void> {
     this.cache.clear()
     try {
-      await this.pacer.run(() => this.client.sendFile(Buffer.from(boc, 'base64')))
+      await this.call(c => c.sendFile(Buffer.from(boc, 'base64')))
     } catch (err) {
       // The extension refuses before accepting, so a refusal comes back here, not as a transaction.
       const text = JSON.stringify((err as { response?: { data?: unknown } }).response?.data ?? String(err))
@@ -88,7 +112,7 @@ export class ToncenterChain implements ChainPort {
   }
 
   async findPayment(wallet: string, comment: string, sinceSec: number): Promise<{ txHash: string } | null> {
-    const txs = await this.pacer.run(() => this.client.getTransactions(Address.parse(wallet), { limit: 20, archival: false }))
+    const txs = await this.call(c => c.getTransactions(Address.parse(wallet), { limit: 20, archival: false }))
     for (const tx of txs) {
       if (tx.now < sinceSec) continue
       for (const m of tx.outMessages.values()) {

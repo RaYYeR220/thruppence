@@ -137,7 +137,12 @@ export class Service {
     }
     if (!text && !m.structured) return { dropped: 'empty' }
 
-    const [card, info] = await Promise.all([this.requesterCard(m.from.tgId), this.chain.extInfo(w.ext)])
+    // If the chain cannot be read right now the card still appears; the limits are checked again at pay time.
+    const UNKNOWN = 10n ** 30n
+    const [card, info] = await Promise.all([
+      this.requesterCard(m.from.tgId),
+      this.chain.extInfo(w.ext).catch(() => ({ seqno: 0, perTxNano: UNKNOWN, dailyNano: UNKNOWN, spentNano: 0n, paused: false })),
+    ])
     const book = this.store.bookAddress(m.payerTgId, String(m.from.tgId))
     const remaining = info.dailyNano - info.spentNano
     const ctx = {
